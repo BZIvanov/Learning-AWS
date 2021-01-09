@@ -128,3 +128,13 @@ $input refers to the request data and the dollar sign refers to the request body
 ```
 
 3. In the **Response Body** you should see 28. This way we have clear separation, where APIGateway is extracting the data and providing to the Lambda function only the data it needs.
+
+4. To extend this example even further we can also transform the result from the lambda function. Click the **Integration Response**, expand the options by clicking the triangle icon, click **Mapping Templates**. We will again use application/json template
+
+<img src="./pics/api-gateway/transform-response.png" alt="drawing" width="700" border="2"/>
+
+$input is the info sent by the lambda and the $ is the data.
+
+5. Go back and test the API. You should see the following result.
+
+<img src="./pics/api-gateway/test-result.png" alt="drawing" width="700" border="2"/>
