@@ -46,3 +46,5 @@ This pool will maanage users signed up in our application.
 The react project is in the demo-project folder.
 
 Clicking **Users and groups** you can see the list of users creating on the client.
+
+While testing with random emails on signup, then we get error for unconfirmed email, we can manually confirm the mail in the pool window. Click **Users and groups**, then specific user and click the button **Confirm user**.
