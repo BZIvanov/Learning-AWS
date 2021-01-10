@@ -1,4 +1,4 @@
-# API Lambda
+# Lambda
 
 The Lambda service provide us a way to run code on demand.
 
