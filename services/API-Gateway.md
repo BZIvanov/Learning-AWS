@@ -198,9 +198,68 @@ exports.handler = async (event) => {
 ```
 
 3. Now in the Method Execution diagram click **Integration Request**. Expand **Mapping Templates** and as we did previously, select the second (recommended) option. Click **Add mapping template** give it type _aaplication/json_ and provide template. Click the **Save** button.
-
-<img src="./pics/api-gateway/map-param.png" alt="drawing" width="700" border="2"/>
+   <img src="./pics/api-gateway/map-param.png" alt="drawing" width="700" border="2"/>
 
 4. Go to test now, if working you should see:
+   <img src="./pics/api-gateway/test-param.png" alt="drawing" width="700" border="2"/>
 
-<img src="./pics/api-gateway/test-param.png" alt="drawing" width="700" border="2"/>
+# Authorizers
+
+1. To create authorizer select the method for the resource you want to create authorizer and click **Authorizers** from the menu on the left. Click **Create New Authorizer**.
+
+2. Give it a name, select lambda function, provide Token source and click **Create**.
+   <img src="./pics/api-gateway/create-authorizer.png" alt="drawing" width="700" border="2"/>
+
+This is the code from the lambda function:
+
+```javascript
+exports.handler = (event, context, callback) => {
+  const token = event.authorizationToken;
+
+  if (token === 'allow') {
+    const policy = genPolicy('allow', event.methodArn);
+    const principalId = 'somethingrandom';
+    const context = {
+      simpleAuth: true,
+    };
+    const response = {
+      principalId: principalId,
+      policyDocument: policy,
+      context: context,
+    };
+    callback(null, response);
+  } else if (token === 'deny') {
+    const policy = genPolicy('deny', event.methodArn);
+    const principalId = 'somethingrandom';
+    const context = {
+      simpleAuth: true,
+    };
+    const response = {
+      principalId: principalId,
+      policyDocument: policy,
+      context: context,
+    };
+    callback(null, response);
+  } else {
+    callback('Unauthorized');
+  }
+};
+
+function genPolicy(effect, resource) {
+  // we are creating object similar to a policy object, we can see how it looks like if we open a policy in JSON format
+  const policy = {};
+  policy.Version = '2012-10-17';
+  policy.Statement = [];
+  const stmt = {};
+  stmt.Action = 'execute-api:Invoke';
+  stmt.Effect = effect;
+  stmt.Resource = resource;
+  policy.Statement.push(stmt);
+  return policy;
+}
+```
+
+3. Go back to **Resources** and click the method for which you will assign authorization, then click **Method Request** and for **Settings** **Authorization** use our new custom authorizator.
+   <img src="./pics/api-gateway/use-authorizator.png" alt="drawing" width="700" border="2"/>
+
+4. From **Actions** button **Deploy API** to save changes for our API. Now we can use this resource with header "Authorization": "allow", otherwise it won't work.
