@@ -20,9 +20,9 @@ This pool will maanage users signed up in our application.
    <img src="./pics/cognito/create-user-pool.png" alt="drawing" width="700"/>
 
 2. Proceed with selection as on the screenshots.
-   <img src="./pics/cognito/config-user-pool.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-2.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-3.png" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool.png" alt="drawing"/>
+   <img src="./pics/cognito/config-user-pool-2.png" alt="drawing"/>
+   <img src="./pics/cognito/config-user-pool-3.png" alt="drawing"/>
    <img src="./pics/cognito/config-user-pool-4.png" alt="drawing" width="700"/>
    <img src="./pics/cognito/config-user-pool-5.png" alt="drawing" width="700"/>
    <img src="./pics/cognito/config-user-pool-6.png" alt="drawing" width="700"/>
