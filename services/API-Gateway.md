@@ -20,7 +20,7 @@ The APIGateway service provide us a way for creating serverless API.
 
 6. Name the resource and click **Create Resource**.
 
-<img src="./pics/api-gateway/api-resource.PNG" alt="drawing" width="700" border="2"/>
+<img src="./pics/api-gateway/api-resource.PNG" alt="drawing" width="700"/>
 
 _Note_: **Configure as proxy resource** - means that this resource will also catch all other resources and methods. Some use case for catching everything would be if we are creating some kind of full stack application.
 
