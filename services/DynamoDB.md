@@ -8,16 +8,16 @@ DynamoDB service is a NoSql database.
    <img src="./pics/aws-console.png" alt="drawing" width="700"/>
 
 2. Give a **Table name** and **Partition key** and click **Create** button.
-   <img src="./pics/dynamodb/create-table.png" alt="drawing" width="700"/>
+   <img src="./pics/dynamodb/create-table.PNG" alt="drawing" width="700"/>
 
 3. You will get to this details view after the table is created:
-   <img src="./pics/dynamodb/overview.png" alt="drawing" width="700"/>
+   <img src="./pics/dynamodb/overview.PNG" alt="drawing" width="700"/>
 
 4. Now to create new item (row in the db) click the **Items** tab, then **Create item** button. In this example we will give dummy UserId manually and to add more columns click the plus sign, then **Append** and select the type of value you want to add and click the **Save** button.
-   <img src="./pics/dynamodb/add-item.png" alt="drawing" width="700"/>
+   <img src="./pics/dynamodb/add-item.PNG" alt="drawing" width="700"/>
 
 5. Now we can see the data in our table:
-   <img src="./pics/dynamodb/table-row.png" alt="drawing" width="700"/>
+   <img src="./pics/dynamodb/table-row.PNG" alt="drawing" width="700"/>
 
 6. Now after we have database we can access it in lambda function. For more info on aws-sdk check in common folder.
 
@@ -63,7 +63,7 @@ exports.handler = (event, context, callback) => {
 8. But this setup still will not work, because by default lambda function has no rights to store data, for its role it has only logging rights. To add this kind of rights we will need IAM service.
 
 9. Go to AWS managment console and search for IAM service. Click **Roles**, click the role name which our lambda function is using, click **Attach policies** search for dynamo and check the box for **AmazonDynamoDBFullAccess** and click **Attach policy**. Now you should see this policy also added for this role.
-   <img src="./pics/dynamodb/attach-policy.png" alt="drawing" width="700" border="2"/>
+   <img src="./pics/dynamodb/attach-policy.PNG" alt="drawing" width="700" border="2"/>
 
 10. Now if you run **Test** on the lambda function to execute it, you should see the data in DynamoDB.
 

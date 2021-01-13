@@ -17,29 +17,29 @@ Cognito service is a way to work with users and credentials
 This pool will maanage users signed up in our application.
 
 1. Select the option **Manage User Pools**, click the button **Create a user pool**. Now give it a name and select **Step through settings**.
-   <img src="./pics/cognito/create-user-pool.png" alt="drawing" width="700"/>
+   <img src="./pics/cognito/create-user-pool.PNG" alt="drawing" width="700"/>
 
 2. Proceed with selection as on the screenshots.
-   <img src="./pics/cognito/config-user-pool.png" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool.PNG" alt="drawing" width="700"/>
    <img src="./pics/cognito/config-user-pool-2.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-3.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-4.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-5.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-6.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-7.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-8.png" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-3.PNG" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-4.PNG" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-5.PNG" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-6.PNG" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-7.PNG" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-8.PNG" alt="drawing" width="700"/>
    On the next step click **Add an app client**. Important here is to uncheck **Generate client secret**.
-   <img src="./pics/cognito/config-user-pool-9.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-10.png" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-11.png" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-9.PNG" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-10.PNG" alt="drawing" width="700"/>
+   <img src="./pics/cognito/config-user-pool-11.PNG" alt="drawing" width="700"/>
 
 3. Click **Create Pool** after reviewing the selected settings.
 
 4. Set domain name for your app:
-   <img src="./pics/cognito/domain-name.png" alt="drawing" width="700"/>
+   <img src="./pics/cognito/domain-name.PNG" alt="drawing" width="700"/>
 
 5. Here is the workflow of what is actually happening
-   <img src="./pics/cognito/auth-flow.png" alt="drawing" width="700"/>
+   <img src="./pics/cognito/auth-flow.PNG" alt="drawing" width="700"/>
 
 # Cognito with React
 

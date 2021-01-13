@@ -30,13 +30,13 @@ Now for the OPTIONS method in the Integration response we have these default hea
 
 Alternative and easy way to also add cors headers is while selected specific resource from the **Action** button to select **Enable CORS**. This way we can add for all methods for that resource.
 
-<img src="./pics/api-gateway/api-cors.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/api-cors.PNG" alt="drawing" width="700"/>
 
 7. Make sure you marked/selected the resource so you can give it a method type. Click again the **Actions** button and click **Create Method** for example GET method.
 
 8. Click the small check button and you will be given the option to define some kind of controller. For example a Lambda Function. Click **Save** to finish the process. Of course if you don't have any Lambda function to use you will need to create one or if you do have type its name. Also confirm to give the APIGateway permission to use the lambda function.
 
-<img src="./pics/api-gateway/api-controller.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/api-controller.PNG" alt="drawing" width="700"/>
 
 _Note_: **Lambda Function** - we can run any type of code on demand, whenever this resource is reached.
 
@@ -50,7 +50,7 @@ _Note_: **Use Lambda Proxy Integration** - if checked it will pass everything fr
 
 9. Once saved you will see the following setup. By clicking the **TEST** icon you can test the result of the function. To be able to see this cycle view you need to have selected **Resources** from the menu on the left.
 
-<img src="./pics/api-gateway/api-req-res.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/api-req-res.PNG" alt="drawing" width="700"/>
 
 10. Click again the **Action** button and click **Deploy API**. From the popup window select Deployment Stage and give it a name and optionally description and click **Deploy**. Everytime we make changes on our API we have to deploy changes, otherwise they won't take effect.
 
@@ -58,7 +58,7 @@ _Note_: **Use Lambda Proxy Integration** - if checked it will pass everything fr
 
 11. And here you can see the generated route.
 
-<img src="./pics/api-gateway/api-deployed.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/api-deployed.PNG" alt="drawing" width="700"/>
 
 ---
 
@@ -92,7 +92,7 @@ Some details for the menu options on the left:
 
 Controlling of what happens, when our API is accessed is defined with working on the request and the response. In this example the cycle of the image below will start when we receive POST request for something/compare-yourself url:
 
-<img src="./pics/api-gateway/api-req-res-details.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/api-req-res-details.PNG" alt="drawing" width="700"/>
 
 1. **Method Request** - here we can validate the request, like authorization, api keys required.
 
@@ -114,7 +114,7 @@ exports.handler = async (event) => {
 
 1. Click the **Integration Request** and expand the **Mapping Templates** section. Check the (recommended) second option. Click the **Add mapping template** link and provide type _application/json_, provide some template and click the **Save** button.
 
-<img src="./pics/api-gateway/mapping-template.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/mapping-template.PNG" alt="drawing" width="700"/>
 
 $input refers to the request data and the dollar sign refers to the request body. Read [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html) for more info on mapping templates syntax.
 
@@ -133,13 +133,13 @@ $input refers to the request data and the dollar sign refers to the request body
 
 4. To extend this example even further we can also transform the result from the lambda function. Click the **Integration Response**, expand the options by clicking the triangle icon, click **Mapping Templates**. We will again use application/json template
 
-<img src="./pics/api-gateway/transform-response.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/transform-response.PNG" alt="drawing" width="700"/>
 
 $input is the info sent by the lambda and the $ is the data.
 
 5. Go back and test the API. You should see the following result.
 
-<img src="./pics/api-gateway/test-result.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/test-result.PNG" alt="drawing" width="700"/>
 
 # Models
 
@@ -147,13 +147,13 @@ With models we can create schema to work only with the shape of the data we need
 
 1. To create a model for your api click **Models** on the left panel. Click the button **Create**. Giva a name for you model and content type, provide the schema and click **Create model**.
 
-<img src="./pics/api-gateway/create-model.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/create-model.PNG" alt="drawing" width="700"/>
 
 2. After creation you will have it in the list with models. Now go back to **Resources**, choose for which method you want to use it, from the Method Execution diagram select **Method Request**, expand **Request Body**, click **Add Model**, give it a type, and from the dropdow select the model we have just created, also click the check icon.
 
 3. Now we need to select what we want to validate with the selected model. On the same window, click the edit pen icon for the **Request Validator**, select **Validate Body**, agree with the check icon.
 
-<img src="./pics/api-gateway/using-model.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/using-model.PNG" alt="drawing" width="700"/>
 
 4. To test if working, go back to the Method Execution diagram, click the **TEST** icon, now you have to provide **Request Body** with valid data as specified in the schema or you will get message for invalid body request in the **Response Body**.
 
@@ -161,7 +161,7 @@ With models we can create schema to work only with the shape of the data we need
 
 6. Now go to the **Integration Request**, expand the **Mapping Templates**, from the **Generate template** now you have the option to selected the Model we have created and you will automatically get the mapping for it, which you can further change.
 
-<img src="./pics/api-gateway/map-model-ir.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/map-model-ir.PNG" alt="drawing" width="700"/>
 
 7. Now you can go and test again with valida body provided, you should get the age result with following lambda code:
 
@@ -180,7 +180,7 @@ To extract parts of the url as variable we need to place the path in curly brace
 
 1. Click **Resources**, then **Actions** button, then **Create Resource**. Give it a name and path in curly braces. Enable cors and click **Create Resource**.
 
-<img src="./pics/api-gateway/path-variable.png" alt="drawing" width="700"/>
+<img src="./pics/api-gateway/path-variable.PNG" alt="drawing" width="700"/>
 
 2. Now for this resource also create GET method. For the method assign lambda function. The code below is in the lambda function. Use the lambda function for this GET method and click **Save** button.
 
@@ -198,17 +198,17 @@ exports.handler = async (event) => {
 ```
 
 3. Now in the Method Execution diagram click **Integration Request**. Expand **Mapping Templates** and as we did previously, select the second (recommended) option. Click **Add mapping template** give it type _aaplication/json_ and provide template. Click the **Save** button.
-   <img src="./pics/api-gateway/map-param.png" alt="drawing" width="700"/>
+   <img src="./pics/api-gateway/map-param.PNG" alt="drawing" width="700"/>
 
 4. Go to test now, if working you should see:
-   <img src="./pics/api-gateway/test-param.png" alt="drawing" width="700"/>
+   <img src="./pics/api-gateway/test-param.PNG" alt="drawing" width="700"/>
 
 # Authorizers
 
 1. To create authorizer select the method for the resource you want to create authorizer and click **Authorizers** from the menu on the left. Click **Create New Authorizer**.
 
 2. Give it a name, select lambda function, provide Token source and click **Create**.
-   <img src="./pics/api-gateway/create-authorizer.png" alt="drawing" width="700"/>
+   <img src="./pics/api-gateway/create-authorizer.PNG" alt="drawing" width="700"/>
 
 This is the code from the lambda function:
 
@@ -260,6 +260,6 @@ function genPolicy(effect, resource) {
 ```
 
 3. Go back to **Resources** and click the method for which you will assign authorization, then click **Method Request** and for **Settings** **Authorization** use our new custom authorizator.
-   <img src="./pics/api-gateway/use-authorizator.png" alt="drawing" width="700"/>
+   <img src="./pics/api-gateway/use-authorizator.PNG" alt="drawing" width="700"/>
 
 4. From **Actions** button **Deploy API** to save changes for our API. Now we can use this resource with header "Authorization": "allow", otherwise it won't work.
