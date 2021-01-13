@@ -5,19 +5,19 @@ DynamoDB service is a NoSql database.
 # Basic Usage
 
 1. In the AWS managment console search for **DynamoDB** service or pick from the Services dropdown menu.
-   <img src="./pics/aws-console.png" alt="drawing" width="700" border="2"/>
+   <img src="./pics/aws-console.png" alt="drawing" width="700"/>
 
 2. Give a **Table name** and **Partition key** and click **Create** button.
-   <img src="./pics/dynamodb/create-table.png" alt="drawing" width="700" border="2"/>
+   <img src="./pics/dynamodb/create-table.png" alt="drawing" width="700"/>
 
 3. You will get to this details view after the table is created:
-   <img src="./pics/dynamodb/overview.png" alt="drawing" width="700" border="2"/>
+   <img src="./pics/dynamodb/overview.png" alt="drawing" width="700"/>
 
 4. Now to create new item (row in the db) click the **Items** tab, then **Create item** button. In this example we will give dummy UserId manually and to add more columns click the plus sign, then **Append** and select the type of value you want to add and click the **Save** button.
-   <img src="./pics/dynamodb/add-item.png" alt="drawing" width="700" border="2"/>
+   <img src="./pics/dynamodb/add-item.png" alt="drawing" width="700"/>
 
 5. Now we can see the data in our table:
-   <img src="./pics/dynamodb/table-row.png" alt="drawing" width="700" border="2"/>
+   <img src="./pics/dynamodb/table-row.png" alt="drawing" width="700"/>
 
 6. Now after we have database we can access it in lambda function. For more info on aws-sdk check in common folder.
 
