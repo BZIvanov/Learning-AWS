@@ -28,10 +28,11 @@ This pool will maanage users signed up in our application.
    <img src="./pics/cognito/config-user-pool-6.PNG" alt="drawing" width="700"/>
    <img src="./pics/cognito/config-user-pool-7.PNG" alt="drawing" width="700"/>
    <img src="./pics/cognito/config-user-pool-8.PNG" alt="drawing" width="700"/>
-   On the next step click **Add an app client**. Important here is to uncheck **Generate client secret**.
-   <img src="./pics/cognito/config-user-pool-9.PNG" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-10.PNG" alt="drawing" width="700"/>
-   <img src="./pics/cognito/config-user-pool-11.PNG" alt="drawing" width="700"/>
+
+- On the next step click **Add an app client**. Important here is to uncheck **Generate client secret**.
+  <img src="./pics/cognito/config-user-pool-9.PNG" alt="drawing" width="700"/>
+  <img src="./pics/cognito/config-user-pool-10.PNG" alt="drawing" width="700"/>
+  <img src="./pics/cognito/config-user-pool-11.PNG" alt="drawing" width="700"/>
 
 3. Click **Create Pool** after reviewing the selected settings.
 
