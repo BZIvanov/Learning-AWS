@@ -63,7 +63,7 @@ exports.handler = (event, context, callback) => {
 8. But this setup still will not work, because by default lambda function has no rights to store data, for its role it has only logging rights. To add this kind of rights we will need IAM service.
 
 9. Go to AWS managment console and search for IAM service. Click **Roles**, click the role name which our lambda function is using, click **Attach policies** search for dynamo and check the box for **AmazonDynamoDBFullAccess** and click **Attach policy**. Now you should see this policy also added for this role.
-   <img src="./pics/dynamodb/attach-policy.PNG" alt="drawing" width="700" border="2"/>
+   <img src="./pics/dynamodb/attach-policy.PNG" alt="drawing" width="700"/>
 
 10. Now if you run **Test** on the lambda function to execute it, you should see the data in DynamoDB.
 
