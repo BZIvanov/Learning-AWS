@@ -84,7 +84,7 @@ If we are working with DynamoDB it is not good practice to use the full access p
 1. To create a policy go to IAM service and click **Policies** and click **Create policy**
    <img src="./pics/iam/create-policy.PNG" alt="drawing" width="700"/>
 
-2. Select the **Service**, then select which actions you want to use for this role (PutItem in this example), select all you need and click the **close** link. Also provide the ARN(Amazon Resource Name) code for the table resource. You can see the DynamoDB table ARN in the Overview tab. Click **AddARN** link and paste the arn code.
+2. Select the **Service**, then select which actions you want to use for this role (PutItem in this example), select all you need and click the **close** link. Also provide the ARN(Amazon Resource Name) code for the resource you want to use (table in this example, because we are creating policy for a DB). You can see the DynamoDB table ARN in the Overview tab. Click **AddARN** link and paste the arn code.
    <img src="./pics/iam/policy-config.PNG" alt="drawing" width="700"/>
 
 3. After clicking **Review policy**, now give it a name and click **Create policy**.
