@@ -22,8 +22,8 @@ Here are some good and important notes:
 
 # Basic Usage
 
-1. In the AWS managment console search for **IAM** service or pick from the Services dropdown menu.
-   <img src="./pics/aws-console.png" alt="drawing" width="700"/>
+In the AWS managment console search for **IAM** service or pick from the Services dropdown menu.
+<img src="./pics/aws-console.png" alt="drawing" width="700"/>
 
 # Creating a user and a group
 

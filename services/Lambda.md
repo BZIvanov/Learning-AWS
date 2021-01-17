@@ -4,8 +4,7 @@ The Lambda service provide us a way to run code on demand.
 
 # Basic Usage
 
-1. In the AWS managment console search for **Lambda** service or pick from the Services dropdown menu.
-
+In the AWS managment console search for **Lambda** service or pick from the Services dropdown menu.
 <img src="./pics/aws-console.png" alt="drawing" width="700"/>
 
 2. Click the **Create Function** button. The proceed with **Author from scracth**. Give a name on your function and click **Create function** button. To set a role expand the **Change default execution role**, if you already have role, select **Use and existing role** and select one from the dropdown menu. Later you can also change the role from the **Permissions** tab from the lambda window.
