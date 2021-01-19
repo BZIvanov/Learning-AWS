@@ -5,3 +5,5 @@ To test the result, in the termianl run:
 ```
 ts-node index.ts
 ```
+
+In order to have _ts-node_ as available command, you should have installed globally or locally _typescript_ and _ts-node_.
