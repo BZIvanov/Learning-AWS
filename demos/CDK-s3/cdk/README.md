@@ -34,7 +34,7 @@ After we using typescript, you can always ctrl+click and check more details abou
 
 First run **cdk synth** to create your CloudFormation template. **cdk.out** folder will be created, you can review the content of what this command did.
 
-Next run **cdk bootstrap** in case you are going to deploy some assets.
+Next run **cdk bootstrap** in case you are going to deploy some assets. This command is executed only once to set our environment.
 
 Next run **cdk deploy --profile username** to access AWS with profile different than the default one. Check for _aws configure_ for additional info on how to configure named profiles.
 
