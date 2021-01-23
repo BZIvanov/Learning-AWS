@@ -32,10 +32,16 @@ After we using typescript, you can always ctrl+click and check more details abou
 
 ## Deployment
 
-First run **cdk synth** to create your CloudFormation template. **cdk.out** folder will be created, you can review the content of what this command did.
+First run **cdk bootstrap --profile profile-name** in case you are going to deploy some assets. This command is executed only once to set our environment. Environment is the combination of account id and region as you can see in the console after the bootstrap command is finished. If you then also check CloudFormation from the managmenet console in aws you should see your stack.
 
-Next run **cdk bootstrap** in case you are going to deploy some assets. This command is executed only once to set our environment.
+Next run **cdk synth** to create your CloudFormation template. **cdk.out** folder will be created, you can review the content of what this command did.
 
 Next run **cdk deploy --profile username** to access AWS with profile different than the default one. Check for _aws configure_ for additional info on how to configure named profiles.
 
-To delete the stack run **cdk destroy --profile username**.
+With **cdk diff** we can compare our local changes with already deployed changes.
+
+To delete the deployed stack, run **cdk destroy --profile username**.
+
+## Important notes
+
+It is important to have all dependencies in the package.json with the same version (in this example 1.86.0).
