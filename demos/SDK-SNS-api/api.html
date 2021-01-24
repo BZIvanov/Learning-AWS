@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid green;
+        padding: 5px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNS API</title>
+  </head>
+  <body>
+    <h2>General info</h2>
+    <p>Request and response body is always of type JSON.</p>
+
+    <h2>Create topic</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createTopic</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyTestTopic"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "d58a5104-6ff1-5a8b-a796-0983081760f5"
+  },
+  "TopicArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>List topics</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/listTopics</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>GET</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "ae48a9c9-b32f-5d9f-8a14-f14edf5d4411"
+  },
+  "Topics": [
+    {
+      "TopicArn": "arn:aws:sns:us-east-1:134956957592:AnotherTopic"
+    },
+    {
+      "TopicArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic"
+    }
+  ]
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>Get topic attributes</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getTopicAttributes</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "arn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "a99f150f-e484-5f10-907a-4d888beb6759"
+  },
+  "Attributes": {
+    "Policy": "{\"Version\":\"2008-10-17\",\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Sid\":\"__default_statement_ID\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\",\"SNS:Receive\"],\"Resource\":\"arn:aws:sns:us-east-1:134956957592:MyTestTopic\",\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"134956957592\"}}}]}",
+    "Owner": "134956957592",
+    "SubscriptionsPending": "0",
+    "TopicArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic",
+    "EffectiveDeliveryPolicy": "{\"http\":{\"defaultHealthyRetryPolicy\":{\"minDelayTarget\":20,\"maxDelayTarget\":20,\"numRetries\":3,\"numMaxDelayRetries\":0,\"numNoDelayRetries\":0,\"numMinDelayRetries\":0,\"backoffFunction\":\"linear\"},\"disableSubscriptionOverrides\":false}}",
+    "SubscriptionsConfirmed": "0",
+    "DisplayName": "DisplayMyTestTopic",
+    "DeliveryPolicy": "{\"http\":{\"defaultHealthyRetryPolicy\":{\"minDelayTarget\":20,\"maxDelayTarget\":20,\"numRetries\":3,\"numMaxDelayRetries\":0,\"numNoDelayRetries\":0,\"numMinDelayRetries\":0,\"backoffFunction\":\"linear\"},\"disableSubscriptionOverrides\":false}}",
+    "SubscriptionsDeleted": "0"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>Create Platform application</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createPlatformApplication</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyAndroidApplication"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "667319dc-c681-5ecc-a76e-415bbca9f86e"
+  },
+  "PlatformApplicationArn": "arn:aws:sns:us-east-1:134956957592:app/GCM/MyAndroidApplication"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>List Platform applications</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/listPlatformApplications</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>GET</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "54c8152f-2bdb-5bdc-aed2-4da855255bf8"
+  },
+  "PlatformApplications": [
+    {
+      "PlatformApplicationArn": "arn:aws:sns:us-east-1:134956957592:app/GCM/MyAndroidApplication",
+      "Attributes": {
+        "Enabled": "true"
+      }
+    }
+  ]
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>Create Platform Endpoint</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createPlatformEndpoint</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "applicationArn": "arn:aws:sns:us-east-1:134956957592:app/GCM/MyAndroidApplication"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "40d27097-27ec-57ef-ad89-2810bed56214"
+  },
+  "EndpointArn": "arn:aws:sns:us-east-1:134956957592:endpoint/GCM/MyAndroidApplication/7bfc3a40-3bb5-34c2-9035-297886f39d8a"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>List Endpoints by Platform application</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/listEndpointsByPlatformApplication</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "applicationArn": "arn:aws:sns:us-east-1:134956957592:app/GCM/MyAndroidApplication"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "426a7c47-31fc-527d-a463-24c0ab3457fa"
+  },
+  "Endpoints": [
+    {
+      "EndpointArn": "arn:aws:sns:us-east-1:134956957592:endpoint/GCM/MyAndroidApplication/7bfc3a40-3bb5-34c2-9035-297886f39d8a",
+      "Attributes": {
+        "Enabled": "true",
+        "Token": "asdfasdfasfsefsffasdawawdawdawda"
+      }
+    },
+    {
+      "EndpointArn": "arn:aws:sns:us-east-1:134956957592:endpoint/GCM/MyAndroidApplication/ee4e60d4-fe91-3316-ae69-6fca37dc081d",
+      "Attributes": {
+        "Enabled": "true",
+        "Token": "asdfasdfasdfasdffasdawawdawdawda"
+      }
+    }
+  ]
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2>Subscribe to topic by application endpoint</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/subscribe</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "topicArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic",
+  "applicationEndpoint": "arn:aws:sns:us-east-1:134956957592:endpoint/GCM/MyAndroidApplication/7bfc3a40-3bb5-34c2-9035-297886f39d8a"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "5f1b97bf-0201-526c-b588-cf389b54a633"
+  },
+  "SubscriptionArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic:27ef5120-515d-4942-af1e-2f613f8d100e"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
