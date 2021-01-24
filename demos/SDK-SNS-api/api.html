@@ -492,5 +492,74 @@
         </tr>
       </tbody>
     </table>
+
+    <hr />
+
+    <h2>List subscriptions</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/listSubscriptions</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body (OPTIONAL)</td>
+          <td>
+            <pre>
+{
+  "nextToken": "AAEOKHQzNTkJzBN1uXgllDP/FKHJcf8+4I8wimBnXdV3lA=="
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <p>
+      Next token will be present only if there are more subscriptions to load.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "17fbb523-0d74-5391-9c39-eda4a34da626"
+  },
+  "Subscriptions": [
+    {
+      "SubscriptionArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic:27ef5120-515d-4942-af1e-2f613f8d100e",
+      "Owner": "134956957592",
+      "Protocol": "application",
+      "Endpoint": "arn:aws:sns:us-east-1:134956957592:endpoint/GCM/MyAndroidApplication/7bfc3a40-3bb5-34c2-9035-297886f39d8a",
+      "TopicArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic"
+    }
+  ],
+  "NextToken": "AAEOKHQzNTkJzBN1uXgllDP/FKHJcf8+4I8wimBnXdV3lA=="
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

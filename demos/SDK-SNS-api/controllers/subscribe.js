@@ -26,3 +26,19 @@ exports.subscribe = async (req, res) => {
     res.send(err);
   }
 };
+
+exports.listSubscriptions = async (req, res) => {
+  const nextToken = req.body.nextToken || undefined;
+
+  try {
+    const params = {};
+    if (nextToken) {
+      params['NextToken'] = nextToken;
+    }
+
+    const result = await sns.listSubscriptions(params).promise();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+};
