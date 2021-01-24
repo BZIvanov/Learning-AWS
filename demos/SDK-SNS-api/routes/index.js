@@ -4,7 +4,7 @@ const {
   listTopics,
   getTopicAttributes,
 } = require('../controllers/topic');
-const { subscribe } = require('../controllers/subscribe');
+const { subscribe, listSubscriptions } = require('../controllers/subscribe');
 const {
   createPlatformApplication,
   listPlatformApplications,
@@ -28,5 +28,6 @@ router.post(
 
 // SUBSCRIPTIONS related
 router.post('/subscribe', subscribe);
+router.post('/listSubscriptions', listSubscriptions);
 
 module.exports = router;
