@@ -4,12 +4,17 @@ const {
   listTopics,
   getTopicAttributes,
 } = require('../controllers/topic');
-const { subscribe, listSubscriptions } = require('../controllers/subscribe');
+const {
+  subscribe,
+  listSubscriptions,
+  getSubscriptionAttributes,
+} = require('../controllers/subscribe');
 const {
   createPlatformApplication,
   listPlatformApplications,
   createPlatformEndpoint,
   listEndpointsByPlatformApplication,
+  getPlatformApplicationAttributes,
   getEndpointAttributes,
 } = require('../controllers/platform-application');
 
@@ -23,6 +28,10 @@ router.post('/createPlatformApplication', createPlatformApplication);
 router.get('/listPlatformApplications', listPlatformApplications);
 router.post('/createPlatformEndpoint', createPlatformEndpoint);
 router.post(
+  '/getPlatformApplicationAttributes',
+  getPlatformApplicationAttributes
+);
+router.post(
   '/listEndpointsByPlatformApplication',
   listEndpointsByPlatformApplication
 );
@@ -31,5 +40,6 @@ router.post('/getEndpointAttributes', getEndpointAttributes);
 // SUBSCRIPTIONS related
 router.post('/subscribe', subscribe);
 router.post('/listSubscriptions', listSubscriptions);
+router.post('/getSubscriptionAttributes', getSubscriptionAttributes);
 
 module.exports = router;

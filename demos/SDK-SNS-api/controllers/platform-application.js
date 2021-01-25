@@ -71,6 +71,21 @@ exports.listEndpointsByPlatformApplication = async (req, res) => {
   }
 };
 
+exports.getPlatformApplicationAttributes = async (req, res) => {
+  const applicationArn = req.body.applicationArn;
+
+  const params = {
+    PlatformApplicationArn: applicationArn,
+  };
+
+  try {
+    const result = await sns.getPlatformApplicationAttributes(params).promise();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 exports.getEndpointAttributes = async (req, res) => {
   const endpointArn = req.body.endpointArn;
 

@@ -24,7 +24,12 @@
       <a href="#createPlatformEndpoint">createPlatformEndpoint</a> |
       <a href="#createTopic">createTopic</a> |
       <a href="#getEndpointAttributes">getEndpointAttributes</a> |
-      <a href="#getTopicAttributes">getTopicAttributes</a> |
+      <a href="#getPlatformApplicationAttributes"
+        >getPlatformApplicationAttributes</a
+      >
+      |
+      <a href="#getSubscriptionAttributes">getSubscriptionAttributes</a>
+      | <a href="#getTopicAttributes">getTopicAttributes</a> |
       <a href="#listEndpointsByPlatformApplication"
         >listEndpointsByPlatformApplication</a
       >
@@ -319,6 +324,58 @@
       }
     }
   ]
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <!-- GET PLATFORM APPLICATION ATTRIBUTES -->
+    <h2 id="getPlatformApplicationAttributes">
+      Get platform application attributes
+    </h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getPlatformApplicationAttributes</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "8115aa39-aeb3-5b34-9955-f2b0b66bb068"
+  },
+  "Attributes": {
+    "Enabled": "true"
+  }
 }
             </pre>
           </td>
@@ -643,6 +700,73 @@
     }
   ],
   "NextToken": "AAEOKHQzNTkJzBN1uXgllDP/FKHJcf8+4I8wimBnXdV3lA=="
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <!-- GET SUBSCRIPTION ATTRIBUTES -->
+    <h2 id="getSubscriptionAttributes">Get subscription attributes</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getSubscriptionAttributes</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body (OPTIONAL)</td>
+          <td>
+            <pre>
+{
+  "subscriptionArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic:27ef5120-515d-4942-af1e-2f613f8d100e"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "998b85bf-c2a9-5682-b9e1-dd36d991cf67"
+  },
+  "Attributes": {
+    "Owner": "134956957592",
+    "RawMessageDelivery": "false",
+    "TopicArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic",
+    "Endpoint": "arn:aws:sns:us-east-1:134956957592:endpoint/GCM/MyAndroidApplication/7bfc3a40-3bb5-34c2-9035-297886f39d8a",
+    "Protocol": "application",
+    "PendingConfirmation": "false",
+    "ConfirmationWasAuthenticated": "true",
+    "SubscriptionArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic:27ef5120-515d-4942-af1e-2f613f8d100e"
+  }
 }
             </pre>
           </td>
