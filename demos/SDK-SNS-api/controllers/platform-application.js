@@ -44,6 +44,7 @@ exports.createPlatformEndpoint = async (req, res) => {
   const params = {
     PlatformApplicationArn: applicationArn,
     Token: token, // random dummy string, in real scenario this will be obtained from an actual device
+    CustomUserData: 'mymail@mail.com',
   };
 
   try {
