@@ -39,10 +39,11 @@ exports.listPlatformApplications = async (req, res) => {
 
 exports.createPlatformEndpoint = async (req, res) => {
   const applicationArn = req.body.applicationArn;
+  const token = req.body.token;
 
   const params = {
     PlatformApplicationArn: applicationArn,
-    Token: 'asdfasdfasfsefsffasdawawdawdawda', // random dummy string, in real scenario this will be obtained from an actual device
+    Token: token, // random dummy string, in real scenario this will be obtained from an actual device
   };
 
   try {
@@ -64,6 +65,21 @@ exports.listEndpointsByPlatformApplication = async (req, res) => {
     const result = await sns
       .listEndpointsByPlatformApplication(params)
       .promise();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+exports.getEndpointAttributes = async (req, res) => {
+  const endpointArn = req.body.endpointArn;
+
+  const params = {
+    EndpointArn: endpointArn,
+  };
+
+  try {
+    const result = await sns.getEndpointAttributes(params).promise();
     res.send(result);
   } catch (err) {
     res.send(err);

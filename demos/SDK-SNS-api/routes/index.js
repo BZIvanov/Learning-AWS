@@ -10,6 +10,7 @@ const {
   listPlatformApplications,
   createPlatformEndpoint,
   listEndpointsByPlatformApplication,
+  getEndpointAttributes,
 } = require('../controllers/platform-application');
 
 // TOPIC related
@@ -25,6 +26,7 @@ router.post(
   '/listEndpointsByPlatformApplication',
   listEndpointsByPlatformApplication
 );
+router.post('/getEndpointAttributes', getEndpointAttributes);
 
 // SUBSCRIPTIONS related
 router.post('/subscribe', subscribe);

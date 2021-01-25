@@ -18,8 +18,24 @@
   <body>
     <h2>General info</h2>
     <p>Request and response body is always of type JSON.</p>
+    <h2>Quick access</h2>
+    <p>
+      <a href="#createPlatformApplication">createPlatformApplication</a> |
+      <a href="#createPlatformEndpoint">createPlatformEndpoint</a> |
+      <a href="#createTopic">createTopic</a> |
+      <a href="#getEndpointAttributes">getEndpointAttributes</a> |
+      <a href="#getTopicAttributes">getTopicAttributes</a> |
+      <a href="#listEndpointsByPlatformApplication"
+        >listEndpointsByPlatformApplication</a
+      >
+      | <a href="#listPlatformApplications">listPlatformApplications</a> |
+      <a href="#listSubscriptions">listSubscriptions</a> |
+      <a href="#listTopics">listTopics</a> |
+      <a href="#subscribe">subscribe</a>
+    </p>
 
-    <h2>Create topic</h2>
+    <!-- CREATE TOPIC -->
+    <h2 id="createTopic">Create topic</h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -76,7 +92,8 @@
 
     <hr />
 
-    <h2>List topics</h2>
+    <!-- LIST TOPICS -->
+    <h2 id="listTopics">List topics</h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -130,7 +147,8 @@
 
     <hr />
 
-    <h2>Get topic attributes</h2>
+    <!-- GET TOPIC ATTRIBUTES -->
+    <h2 id="getTopicAttributes">Get topic attributes</h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -197,7 +215,8 @@
 
     <hr />
 
-    <h2>Create Platform application</h2>
+    <!-- CREATE PLATFORM APPLICATION -->
+    <h2 id="createPlatformApplication">Create Platform application</h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -254,7 +273,8 @@
 
     <hr />
 
-    <h2>List Platform applications</h2>
+    <!-- LIST PLATFORM APPLICATIONS -->
+    <h2 id="listPlatformApplications">List Platform applications</h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -308,7 +328,8 @@
 
     <hr />
 
-    <h2>Create Platform Endpoint</h2>
+    <!-- CREATE PLATFORM ENDPOINT -->
+    <h2 id="createPlatformEndpoint">Create Platform Endpoint</h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -331,7 +352,8 @@
           <td>
             <pre>
 {
-  "applicationArn": "arn:aws:sns:us-east-1:134956957592:app/GCM/MyAndroidApplication"
+  "applicationArn": "arn:aws:sns:us-east-1:134956957592:app/GCM/MyAndroidApplication",
+  "body": "asdfasdfasfsefsffasdawawdawdawda"
 }
             </pre>
           </td>
@@ -365,7 +387,10 @@
 
     <hr />
 
-    <h2>List Endpoints by Platform application</h2>
+    <!-- LIST APPS ENDPOINTS -->
+    <h2 id="listEndpointsByPlatformApplication">
+      List Endpoints by Platform application
+    </h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -437,7 +462,69 @@
 
     <hr />
 
-    <h2>Subscribe to topic by application endpoint</h2>
+    <!-- GET ENDPOINT ATTRIBUTES -->
+    <h2 id="getEndpointAttributes">Get endpoint attributes</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getEndpointAttributes</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "endpointArn": "arn:aws:sns:us-east-1:134956957592:endpoint/GCM/MyAndroidApplication/7bfc3a40-3bb5-34c2-9035-297886f39d8a"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "85688ad8-8073-55ea-878e-d25190ef4262"
+  },
+  "Attributes": {
+    "Enabled": "true",
+    "Token": "asdfasdfasfsefsffasdawawdawdawda"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <!-- SUBSCRIBE -->
+    <h2 id="subscribe">Subscribe to topic by application endpoint</h2>
     <h3>Request</h3>
     <table>
       <thead>
@@ -495,7 +582,8 @@
 
     <hr />
 
-    <h2>List subscriptions</h2>
+    <!-- LIST SUBSCRIPTIONS -->
+    <h2 id="listSubscriptions">List subscriptions</h2>
     <h3>Request</h3>
     <table>
       <thead>
