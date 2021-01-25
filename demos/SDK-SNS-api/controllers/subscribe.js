@@ -28,7 +28,7 @@ exports.subscribe = async (req, res) => {
 };
 
 exports.listSubscriptions = async (req, res) => {
-  const nextToken = req.body.nextToken || undefined;
+  const nextToken = req.body.nextToken;
 
   try {
     const params = {};
@@ -37,6 +37,21 @@ exports.listSubscriptions = async (req, res) => {
     }
 
     const result = await sns.listSubscriptions(params).promise();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+exports.getSubscriptionAttributes = async (req, res) => {
+  const subscriptionArn = req.body.subscriptionArn;
+
+  try {
+    const params = {
+      SubscriptionArn: subscriptionArn,
+    };
+
+    const result = await sns.getSubscriptionAttributes(params).promise();
     res.send(result);
   } catch (err) {
     res.send(err);
