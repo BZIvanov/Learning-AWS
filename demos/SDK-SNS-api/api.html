@@ -35,7 +35,7 @@
       >
       | <a href="#listPlatformApplications">listPlatformApplications</a> |
       <a href="#listSubscriptions">listSubscriptions</a> |
-      <a href="#listTopics">listTopics</a> |
+      <a href="#listTopics">listTopics</a> | <a href="#publish">publish</a> |
       <a href="#subscribe">subscribe</a>
     </p>
 
@@ -729,7 +729,7 @@
           <td>POST</td>
         </tr>
         <tr>
-          <td>Example body (OPTIONAL)</td>
+          <td>Example body</td>
           <td>
             <pre>
 {
@@ -767,6 +767,64 @@
     "ConfirmationWasAuthenticated": "true",
     "SubscriptionArn": "arn:aws:sns:us-east-1:134956957592:MyTestTopic:27ef5120-515d-4942-af1e-2f613f8d100e"
   }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <!-- PUBLISH TO TOPIC -->
+    <h2 id="publish">Publish to topic</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/publish</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "topicArn": "arn:aws:sns:us-east-1:134946956581:MyTestTopic"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "fba223de-462b-55c7-aaf0-7b5765d2357c"
+  },
+  "MessageId": "7a5f550e-6697-5a7e-a84a-0d87456e8ac5"
 }
             </pre>
           </td>

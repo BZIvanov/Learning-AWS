@@ -17,6 +17,7 @@ const {
   getPlatformApplicationAttributes,
   getEndpointAttributes,
 } = require('../controllers/platform-application');
+const { publish } = require('../controllers/common');
 
 // TOPIC related
 router.post('/createTopic', createTopic);
@@ -41,5 +42,8 @@ router.post('/getEndpointAttributes', getEndpointAttributes);
 router.post('/subscribe', subscribe);
 router.post('/listSubscriptions', listSubscriptions);
 router.post('/getSubscriptionAttributes', getSubscriptionAttributes);
+
+// COMMON
+router.post('/publish', publish);
 
 module.exports = router;
