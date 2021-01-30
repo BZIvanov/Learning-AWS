@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid green;
+        padding: 5px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Gateway API</title>
+  </head>
+  <body>
+    <h2>General info</h2>
+    <p>Request and response body is always of type JSON.</p>
+    <h2>Quick access</h2>
+    <p><a href="#createRestApi">createRestApi</a> |</p>
+
+    <hr />
+
+    <h2 id="createRestApi">Create REST API</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createRestApi</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "awesome-api"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "id": "b3mzhze48g",
+  "name": "awesome-api",
+  "description": "simple test api",
+  "createdDate": "2021-01-30T21:38:45.000Z",
+  "apiKeySource": "HEADER",
+  "endpointConfiguration": {
+    "types": [
+      "REGIONAL"
+    ]
+  },
+  "disableExecuteApiEndpoint": false
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
