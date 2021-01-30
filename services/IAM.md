@@ -3,11 +3,27 @@
 Main points in IAM are:
 
 - Users - usually physical person
-- Groups - admin, devops etc.
-- Roles - internal usage with AWS resources
-- Policies - they define what each of the 3 above can do.
+- Groups - admins, devops etc.
+- Roles - internal usage with AWS resources. Also collection of policies, for example ("SNS:CreateTopic", "SNS:Subscribe")
+- Policies - they define what each of the 3 above can do. Can be _Allow_ or _Deny_. An example policy below. _Sid_ stands for statement id.
 
-It is not good practice to use your root account, best practice is to create IAM User. Root account is recommended to use only to create your account.
+```
+{
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Sid": "FullAccess",
+         "Effect": "Allow",
+         "Action": ["s3:*"],
+         "Resource": ["*"]
+      },
+   ]
+}
+```
+
+---
+
+Note: It is not good practice to use your root account, best practice is to create IAM User. Root account is recommended to use only to create your account.
 
 ---
 
