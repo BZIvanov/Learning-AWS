@@ -19,7 +19,18 @@
     <h2>General info</h2>
     <p>Request and response body is always of type JSON.</p>
     <h2>Quick access</h2>
-    <p><a href="#createRestApi">createRestApi</a> |</p>
+    <p>
+      <a href="#createApiKey">createApiKey</a> |
+      <a href="#createDeployment">createDeployment</a> |
+      <a href="#createResource">createResource</a> |
+      <a href="#createRestApi">createRestApi</a> |
+      <a href="#createUsagePlan">createUsagePlan</a> |
+      <a href="#generateClientCertificate">generateClientCertificate</a> |
+      <a href="#getResources">getResources</a> |
+      <a href="#getRestApi">getRestApi</a> |
+      <a href="#putIntegration">putIntegration</a> |
+      <a href="#putMethod">putMethod</a>
+    </p>
 
     <hr />
 
@@ -78,6 +89,575 @@
     ]
   },
   "disableExecuteApiEndpoint": false
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createApiKey">Create API key</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createApiKey</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "my-api-key"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "id": "9gjs1xcf23",
+  "value": "bg04TnJt2h3qrooxdByH72O921DUo7kG6iMgUxUA",
+  "name": "my-api-key",
+  "description": "my api key description",
+  "enabled": false,
+  "createdDate": "2021-01-30T22:07:12.000Z",
+  "lastUpdatedDate": "2021-01-30T22:07:12.000Z",
+  "stageKeys": []
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createResource">Create resource</h2>
+    <p>
+      Below is example of the structure of your API. In the management console
+      you can see this as breadcrumbs
+    </p>
+    <strong
+      >APIs &gt; awesome-api (b3mzhze48g) &gt; Resources &gt; /
+      (3yvl4cbm92)</strong
+    >
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createResource</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "apiId": "b3mzhze48g",
+  "parentId": "3yvl4cbm92",
+  "path": "books"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "id": "33md5o",
+  "parentId": "3yvl4cbm92",
+  "pathPart": "books",
+  "path": "/books"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="getResources">Get resources</h2>
+    <p>
+      Below is example of the structure of your API. In the management console
+      you can see this as breadcrumbs
+    </p>
+    <strong
+      >APIs &gt; awesome-api (b3mzhze48g) &gt; Resources &gt; /
+      (3yvl4cbm92)</strong
+    >
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getResources</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "id": "b3mzhze48g"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "items": [
+    {
+      "id": "33md5o",
+      "parentId": "3yvl4cbm92",
+      "pathPart": "books",
+      "path": "/books"
+    },
+    {
+      "id": "3yvl4cbm92",
+      "path": "/"
+    }
+  ]
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="putMethod">Put method</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/putMethod</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "apiId": "b3mzhze48g",
+  "resourceId": "33md5o"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "httpMethod": "POST",
+  "authorizationType": "NONE",
+  "apiKeyRequired": false
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="putIntegration">Put integration</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/putIntegration</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "apiId": "b3mzhze48g",
+  "resourceId": "33md5o"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "type": "AWS_PROXY",
+  "httpMethod": "POST",
+  "uri": "arn:aws:apigateway:us-east-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-2:134956957592:function:myTestLambda/invocations",
+  "passthroughBehavior": "WHEN_NO_MATCH",
+  "timeoutInMillis": 10000,
+  "cacheNamespace": "33md5o",
+  "cacheKeyParameters": []
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createDeployment">Create deployment</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createDeployment</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "apiId": "b3mzhze48g"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "id": "k7qwp4",
+  "description": "my current state",
+  "createdDate": "2021-01-30T23:56:15.000Z"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="generateClientCertificate">Generate client certificate</h2>
+    <p>Certificate is accessible for all your APIs</p>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/generateClientCertificate</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "desc": "my-client-certificate"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <p>Client certificate is a very long string, shortened for this example</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "clientCertificateId": "xcgaff",
+  "description": "my-client-certificate",
+  "pemEncodedCertificate": "-----BEGIN CERTIFICATE-----\r\nMIIC6DCFAdCgAwIBAoUnDCFACgH8Hp7MmmEnV3VB0vZOCPX/ic985HA==\r\n-----END CERTIFICATE-----",
+  "createdDate": "2021-01-31T07:02:17.000Z",
+  "expirationDate": "2022-01-31T07:02:17.000Z",
+  "tags": {
+    "mytag": "my cert tag"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="getRestApi">Get REST api</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getRestApi</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "apiId": "b3mzhze48g"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "id": "b3mzhze48g",
+  "name": "awesome-api",
+  "description": "simple test api",
+  "createdDate": "2021-01-30T21:38:45.000Z",
+  "apiKeySource": "HEADER",
+  "endpointConfiguration": {
+    "types": [
+      "REGIONAL"
+    ]
+  },
+  "tags": {},
+  "disableExecuteApiEndpoint": false
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createUsagePlan">Create usage plan</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createUsagePlan</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "My Usage plan"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "id": "36qdy3",
+  "name": "My Usage plan",
+  "description": "My plan for checking the usage",
+  "apiStages": [],
+  "throttle": {
+    "burstLimit": 5,
+    "rateLimit": 10
+  },
+  "quota": {
+    "limit": 100,
+    "offset": 1,
+    "period": "WEEK"
+  }
 }
             </pre>
           </td>
