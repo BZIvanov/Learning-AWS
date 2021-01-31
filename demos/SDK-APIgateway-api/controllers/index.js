@@ -169,11 +169,23 @@ exports.getRestApi = async (req, res) => {
 };
 
 exports.createUsagePlan = async (req, res) => {
-  const name = req.body.name;
+  const apiId = req.body.apiId;
 
   const params = {
-    name: name,
+    name: 'My usage plan',
     description: 'My plan for checking the usage',
+    apiStages: [
+      {
+        apiId: apiId,
+        stage: 'dev',
+        throttle: {
+          '/books/POST': {
+            burstLimit: 4,
+            rateLimit: 8,
+          },
+        },
+      },
+    ],
     throttle: {
       burstLimit: 5,
       rateLimit: 10,

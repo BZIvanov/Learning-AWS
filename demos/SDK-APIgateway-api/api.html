@@ -624,7 +624,7 @@
           <td>
             <pre>
 {
-  "name": "My Usage plan"
+  "apiId": "b3mzhze48g"
 }
             </pre>
           </td>
@@ -645,10 +645,21 @@
           <td>
             <pre>
 {
-  "id": "36qdy3",
-  "name": "My Usage plan",
+  "id": "fawg99",
+  "name": "My usage plan",
   "description": "My plan for checking the usage",
-  "apiStages": [],
+  "apiStages": [
+    {
+      "apiId": "b3mzhze48g",
+      "stage": "dev",
+      "throttle": {
+        "/books/POST": {
+          "burstLimit": 4,
+          "rateLimit": 8
+        }
+      }
+    }
+  ],
   "throttle": {
     "burstLimit": 5,
     "rateLimit": 10
