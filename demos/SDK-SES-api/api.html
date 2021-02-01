@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid green;
+        padding: 5px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SES API</title>
+  </head>
+  <body>
+    <h2>General info</h2>
+    <p>Request and response body is always of type JSON.</p>
+    <h2>Quick access</h2>
+    <p>
+      <a href="#createTemplate">createTemplate</a> |
+      <a href="#sendEmail">sendEmail</a> |
+      <a href="#sendTemplatedEmail">sendTemplatedEmail</a> |
+      <a href="#verifyEmailIdentity">verifyEmailIdentity</a>
+    </p>
+
+    <hr />
+
+    <h2 id="verifyEmailIdentity">Verify email address</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/verifyEmailIdentity</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "mail": "biser.ivanov@gmail.com"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "bb0d47f7-2056-4168-9d75-ebc519316506"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+
+    <h2 id="sendEmail">Send email</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/sendEmail</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "mail": "biser.ivanov@gmail.com"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "4d73a639-7a26-4316-a500-0481d1a93b28"
+  },
+  "MessageId": "010f01775f021fe4-b5a53306-4913-4027-9bf2-1ece7a64d3da-000000"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createTemplate">Create template</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createTemplate</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyTemplate"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "6c4ca261-d118-4eb9-840e-94af23068a54"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="sendTemplatedEmail">Send templated email</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/sendTemplatedEmail</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "mail": "biser.ivanov@gmail.com",
+  "templateName": "MyTemplate"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "a4c1d6c1-1570-4754-9b4f-3838c5f55c3b"
+  },
+  "MessageId": "010f01775f34025a-d5e9f10f-5c77-4087-b7fe-cfb2ff12a768-000000"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+  </body>
+</html>
