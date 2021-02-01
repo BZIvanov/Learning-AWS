@@ -21,6 +21,9 @@
     <h2>Quick access</h2>
     <p>
       <a href="#createTemplate">createTemplate</a> |
+      <a href="#deleteTemplate">deleteTemplate</a> |
+      <a href="#getAccountSendingEnabled">getAccountSendingEnabled</a> |
+      <a href="#getSendStatistics">getSendStatistics</a> |
       <a href="#sendEmail">sendEmail</a> |
       <a href="#sendTemplatedEmail">sendTemplatedEmail</a> |
       <a href="#verifyEmailIdentity">verifyEmailIdentity</a>
@@ -253,5 +256,161 @@
     </table>
 
     <hr />
+
+    <h2 id="getSendStatistics">Get send statistics</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getSendStatistics</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>GET</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "6b2de1fb-eca0-4363-a469-13449593b196"
+  },
+  "SendDataPoints": [
+    {
+      "Timestamp": "2021-02-01T18:59:00.000Z",
+      "DeliveryAttempts": 3,
+      "Bounces": 0,
+      "Complaints": 0,
+      "Rejects": 0
+    }
+  ]
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="getAccountSendingEnabled">Get account sending enabled</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getAccountSendingEnabled</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>GET</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "f41eba41-6e78-452a-bf7e-b8526157e549"
+  },
+  "Enabled": true
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="deleteTemplate">Delete template</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/deleteTemplate</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyTemplate"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "9e7404ca-4a0a-4a02-b939-25d219ae0c36"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

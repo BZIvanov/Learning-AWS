@@ -105,3 +105,40 @@ exports.sendTemplatedEmail = async (req, res) => {
     res.send(err);
   }
 };
+
+exports.getSendStatistics = async (req, res) => {
+  const params = {};
+
+  try {
+    const result = await ses.getSendStatistics(params).promise();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+exports.getAccountSendingEnabled = async (req, res) => {
+  const params = {};
+
+  try {
+    const result = await ses.getAccountSendingEnabled(params).promise();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+exports.deleteTemplate = async (req, res) => {
+  const name = req.body.name;
+
+  const params = {
+    TemplateName: name,
+  };
+
+  try {
+    const result = await ses.deleteTemplate(params).promise();
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+};
