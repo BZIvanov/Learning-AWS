@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid green;
+        padding: 5px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IAM API</title>
+  </head>
+  <body>
+    <h2>General info</h2>
+    <p>Request and response body is always of type JSON.</p>
+    <h2>Quick access</h2>
+    <p><a href="#createGroup">createGroup</a> |</p>
+
+    <hr />
+
+    <h2 id="createGroup">Create group</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createGroup</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "Admins"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "8d2f673e-7b82-418f-b769-ec352555b37e"
+  },
+  "Group": {
+    "Path": "/",
+    "GroupName": "Admins",
+    "GroupId": "AGPAR623XEUS67HM7SJV3",
+    "Arn": "arn:aws:iam::134956957592:group/Admins",
+    "CreateDate": "2021-02-02T20:51:59.000Z"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createUser">Create user</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createUser</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "Iva"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "02ef6ec2-1b21-4737-8342-10b8c301c780"
+  },
+  "User": {
+    "Path": "/",
+    "UserName": "Iva",
+    "UserId": "AIDAR623XEUS2YTSHSLL4",
+    "Arn": "arn:aws:iam::134956957592:user/Iva",
+    "CreateDate": "2021-02-02T20:58:29.000Z",
+    "Tags": []
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
