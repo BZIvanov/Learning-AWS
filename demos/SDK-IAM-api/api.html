@@ -19,7 +19,17 @@
     <h2>General info</h2>
     <p>Request and response body is always of type JSON.</p>
     <h2>Quick access</h2>
-    <p><a href="#createGroup">createGroup</a> |</p>
+    <p>
+      <a href="#addUserToGroup">addUserToGroup</a> |
+      <a href="#attachGroupPolicy">attachGroupPolicy</a> |
+      <a href="#createRole">createRole</a> |
+      <a href="#createGroup">createGroup</a> |
+      <a href="#createPolicy">createPolicy</a> |
+      <a href="#createPolicyVersion">createPolicyVersion</a> |
+      <a href="#createUser">createUser</a> | <a href="#getGroup">getGroup</a> |
+      <a href="#getPolicy">getPolicy</a> |
+      <a href="#getUser">getUser</a>
+    </p>
 
     <hr />
 
@@ -73,9 +83,9 @@
   "Group": {
     "Path": "/",
     "GroupName": "Admins",
-    "GroupId": "AGPAR623XEUS67HM7SJV3",
+    "GroupId": "AGPAR623XEUS3HBCKJEGE",
     "Arn": "arn:aws:iam::134956957592:group/Admins",
-    "CreateDate": "2021-02-02T20:51:59.000Z"
+    "CreateDate": "2021-02-02T21:15:37.000Z"
   }
 }
             </pre>
@@ -136,9 +146,532 @@
   "User": {
     "Path": "/",
     "UserName": "Iva",
-    "UserId": "AIDAR623XEUS2YTSHSLL4",
+    "UserId": "AIDAR623XEUSWZGHD63T4",
     "Arn": "arn:aws:iam::134956957592:user/Iva",
-    "CreateDate": "2021-02-02T20:58:29.000Z",
+    "CreateDate": "2021-02-02T21:16:37.000Z",
+    "Tags": []
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="addUserToGroup">Add user to group</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/addUserToGroup</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "groupName": "Admins",
+  "userName": "Iva"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "d18cff5e-385d-4583-bdb4-cb32975a0494"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="getGroup">Get group</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getGroup</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "Admins"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "0e20d25e-e5d8-4d02-a586-6dba7641488f"
+  },
+  "Group": {
+    "Path": "/",
+    "GroupName": "Admins",
+    "GroupId": "AGPAR623XEUS3HBCKJEGE",
+    "Arn": "arn:aws:iam::134956957592:group/Admins",
+    "CreateDate": "2021-02-02T21:15:37.000Z"
+  },
+  "Users": [
+    {
+      "Path": "/",
+      "UserName": "Iva",
+      "UserId": "AIDAR623XEUSWZGHD63T4",
+      "Arn": "arn:aws:iam::134956957592:user/Iva",
+      "CreateDate": "2021-02-02T21:16:37.000Z",
+      "Tags": []
+    },
+    {
+      "Path": "/",
+      "UserName": "Miro",
+      "UserId": "AIDAR623XEUSX6ND6K7O6",
+      "Arn": "arn:aws:iam::134956957592:user/Miro",
+      "CreateDate": "2021-02-02T21:23:41.000Z",
+      "Tags": []
+    }
+  ],
+  "IsTruncated": false
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createRole">Create Role</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createRole</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyCustomRole"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "00751685-9367-4ee8-b4a4-8997e00dca45"
+  },
+  "Role": {
+    "Path": "/",
+    "RoleName": "MyCustomRole",
+    "RoleId": "AROAR623XEUSX5HE4IIIQ",
+    "Arn": "arn:aws:iam::134956957592:role/MyCustomRole",
+    "CreateDate": "2021-02-02T22:16:41.000Z",
+    "AssumeRolePolicyDocument": "%7B%22Version%22%3A%222012-10-17%22%2C%22Statement%22%3A%7B%22Effect%22%3A%22Allow%22%2C%22Principal%22%3A%7B%22Service%22%3A%22s3.amazonaws.com%22%7D%2C%22Action%22%3A%22sts%3AAssumeRole%22%7D%7D",
+    "Tags": []
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createPolicy">Create Policy</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createPolicy</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyCustomPolicy"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "beb50a9a-84d4-4118-ad89-7ce1c343aa9f"
+  },
+  "Policy": {
+    "PolicyName": "MyCustomPolicy",
+    "PolicyId": "ANPAR623XEUS6YUMFD4A6",
+    "Arn": "arn:aws:iam::134956957592:policy/MyCustomPolicy",
+    "Path": "/",
+    "DefaultVersionId": "v1",
+    "AttachmentCount": 0,
+    "PermissionsBoundaryUsageCount": 0,
+    "IsAttachable": true,
+    "CreateDate": "2021-02-03T09:01:15.000Z",
+    "UpdateDate": "2021-02-03T09:01:15.000Z"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createPolicyVersion">Create Policy version</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createPolicyVersion</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "arn": "arn:aws:iam::134956957592:policy/MyCustomPolicy"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "613b5050-0265-4dac-b971-6053c25c25e8"
+  },
+  "PolicyVersion": {
+    "VersionId": "v2",
+    "IsDefaultVersion": true,
+    "CreateDate": "2021-02-03T09:10:47.000Z"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="getPolicy">Get Policy</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getPolicy</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "arn": "arn:aws:iam::134956957592:policy/MyCustomPolicy"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "b256f8ea-0dcb-4524-b999-fb29f97557b4"
+  },
+  "Policy": {
+    "PolicyName": "MyCustomPolicy",
+    "PolicyId": "ANPAR623XEUS6YUMFD4A6",
+    "Arn": "arn:aws:iam::134956957592:policy/MyCustomPolicy",
+    "Path": "/",
+    "DefaultVersionId": "v2",
+    "AttachmentCount": 0,
+    "PermissionsBoundaryUsageCount": 0,
+    "IsAttachable": true,
+    "Description": "My policy description.",
+    "CreateDate": "2021-02-03T09:01:15.000Z",
+    "UpdateDate": "2021-02-03T09:10:47.000Z"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="attachGroupPolicy">Attach Group Policy</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/attachGroupPolicy</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "groupName": "Admins",
+  "arn": "arn:aws:iam::134956957592:policy/MyCustomPolicy"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "94a8a792-97ac-461b-ba62-e4cbffd7ba27"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="getUser">Get User</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/getUser</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "Iva"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "ResponseMetadata": {
+    "RequestId": "ca687c54-f6ef-4258-8f48-45a2fef8761f"
+  },
+  "User": {
+    "Path": "/",
+    "UserName": "Iva",
+    "UserId": "AIDAR623XEUSWZGHD63T4",
+    "Arn": "arn:aws:iam::134956957592:user/Iva",
+    "CreateDate": "2021-02-02T21:16:37.000Z",
     "Tags": []
   }
 }
