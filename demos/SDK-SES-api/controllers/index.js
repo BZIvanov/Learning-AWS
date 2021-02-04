@@ -10,7 +10,7 @@ const config = new AWS.Config({
 const ses = new AWS.SES(config);
 
 exports.verifyEmailIdentity = async (req, res) => {
-  const mail = req.body.mail;
+  const { mail } = req.body;
 
   const params = {
     EmailAddress: mail,
@@ -25,7 +25,7 @@ exports.verifyEmailIdentity = async (req, res) => {
 };
 
 exports.sendEmail = async (req, res) => {
-  const recipient = req.body.recipient;
+  const { recipient } = req.body;
 
   const params = {
     Destination: {
@@ -60,7 +60,7 @@ exports.sendEmail = async (req, res) => {
 };
 
 exports.createTemplate = async (req, res) => {
-  const name = req.body.name;
+  const { name } = req.body;
 
   const params = {
     Template: {
@@ -81,8 +81,7 @@ exports.createTemplate = async (req, res) => {
 };
 
 exports.sendTemplatedEmail = async (req, res) => {
-  const mail = req.body.mail;
-  const templateName = req.body.templateName;
+  const { mail, templateName } = req.body;
 
   const params = {
     Destination: {
@@ -107,10 +106,8 @@ exports.sendTemplatedEmail = async (req, res) => {
 };
 
 exports.getSendStatistics = async (req, res) => {
-  const params = {};
-
   try {
-    const result = await ses.getSendStatistics(params).promise();
+    const result = await ses.getSendStatistics({}).promise();
     res.send(result);
   } catch (err) {
     res.send(err);
@@ -118,10 +115,8 @@ exports.getSendStatistics = async (req, res) => {
 };
 
 exports.getAccountSendingEnabled = async (req, res) => {
-  const params = {};
-
   try {
-    const result = await ses.getAccountSendingEnabled(params).promise();
+    const result = await ses.getAccountSendingEnabled({}).promise();
     res.send(result);
   } catch (err) {
     res.send(err);
@@ -129,7 +124,7 @@ exports.getAccountSendingEnabled = async (req, res) => {
 };
 
 exports.deleteTemplate = async (req, res) => {
-  const name = req.body.name;
+  const { name } = req.body;
 
   const params = {
     TemplateName: name,
