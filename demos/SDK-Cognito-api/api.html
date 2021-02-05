@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid green;
+        padding: 5px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cognito API</title>
+  </head>
+  <body>
+    <h2>General info</h2>
+    <p>Request and response body is always of type JSON.</p>
+    <h2>Quick access</h2>
+    <p>
+      <a href="#adminCreateUser">adminCreateUser</a> |
+      <a href="#createGroup">createGroup</a> |
+      <a href="#createUserPool">createUserPool</a> |
+      <a href="#createUserPoolClient">createUserPoolClient</a> |
+      <a href="#listUserPools">listUserPools</a>
+    </p>
+
+    <hr />
+
+    <h2 id="createUserPool">Create User Pool</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createUserPool</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "poolName": "MyPool"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <p>The list with schema attributes was shortened for better readability.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "UserPool": {
+    "Id": "us-east-2_D1nRpuh5a",
+    "Name": "MyPool",
+    "Policies": {
+      "PasswordPolicy": {
+        "MinimumLength": 8,
+        "RequireUppercase": true,
+        "RequireLowercase": true,
+        "RequireNumbers": true,
+        "RequireSymbols": true,
+        "TemporaryPasswordValidityDays": 9
+      }
+    },
+    "LambdaConfig": {},
+    "LastModifiedDate": "2021-02-05T14:29:01.537Z",
+    "CreationDate": "2021-02-05T14:29:01.537Z",
+    "SchemaAttributes": [
+      {
+        "Name": "name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "preferred_username",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "email",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": true,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "email_verified",
+        "AttributeDataType": "Boolean",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false
+      },
+      {
+        "Name": "gender",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": false,
+        "Required": true,
+        "StringAttributeConstraints": {
+          "MinLength": "4",
+          "MaxLength": "6"
+        }
+      },
+      {
+        "Name": "phone_number",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "phone_number_verified",
+        "AttributeDataType": "Boolean",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false
+      },
+      {
+        "Name": "updated_at",
+        "AttributeDataType": "Number",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "NumberAttributeConstraints": {
+          "MinValue": "0"
+        }
+      }
+    ],
+    "AutoVerifiedAttributes": [
+      "email"
+    ],
+    "UsernameAttributes": [
+      "email"
+    ],
+    "EmailVerificationMessage": "Your verification code is {####}.",
+    "EmailVerificationSubject": "Welcome new user",
+    "VerificationMessageTemplate": {
+      "EmailMessage": "Your verification code is {####}.",
+      "EmailSubject": "Welcome new user",
+      "DefaultEmailOption": "CONFIRM_WITH_CODE"
+    },
+    "MfaConfiguration": "OFF",
+    "EstimatedNumberOfUsers": 0,
+    "EmailConfiguration": {
+      "SourceArn": "arn:aws:ses:us-east-1:134956957592:identity/biser.ivanov@gmail.com",
+      "ReplyToEmailAddress": "biser.ivanov@gmail.com",
+      "EmailSendingAccount": "DEVELOPER",
+      "From": "biser.ivanov@gmail.com"
+    },
+    "UserPoolTags": {
+      "MyPoolTag": "MyCustomPoolTag"
+    },
+    "AdminCreateUserConfig": {
+      "AllowAdminCreateUserOnly": false,
+      "UnusedAccountValidityDays": 9
+    },
+    "UserPoolAddOns": {
+      "AdvancedSecurityMode": "OFF"
+    },
+    "UsernameConfiguration": {
+      "CaseSensitive": false
+    },
+    "Arn": "arn:aws:cognito-idp:us-east-2:134956957592:userpool/us-east-2_D1nRpuh5a",
+    "AccountRecoverySetting": {
+      "RecoveryMechanisms": [
+        {
+          "Priority": 1,
+          "Name": "verified_email"
+        }
+      ]
+    }
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="listUserPools">List User Pools</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/listUserPools</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "maxResults": 5
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "UserPools": [
+    {
+      "Id": "us-east-2_D1nRpuh5a",
+      "Name": "MyPool",
+      "LambdaConfig": {},
+      "LastModifiedDate": "2021-02-05T14:29:01.537Z",
+      "CreationDate": "2021-02-05T14:29:01.537Z"
+    }
+  ]
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createGroup">Create Group</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createGroup</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyCustomGroup",
+  "poolId": "us-east-2_D1nRpuh5a"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "Group": {
+    "GroupName": "MyCustomGroup",
+    "UserPoolId": "us-east-2_D1nRpuh5a",
+    "Description": "My custom group",
+    "Precedence": 1,
+    "LastModifiedDate": "2021-02-05T15:27:22.010Z",
+    "CreationDate": "2021-02-05T15:27:22.010Z"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="adminCreateUser">Admin Create User</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/adminCreateUser</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "biser__ivanov@gmail.com",
+  "poolId": "us-east-2_D1nRpuh5a"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "User": {
+    "Username": "dc61727d-4ec1-4d9a-a079-1dc0212653c6",
+    "Attributes": [
+      {
+        "Name": "sub",
+        "Value": "dc61727d-4ec1-4d9a-a079-1dc0212653c6"
+      },
+      {
+        "Name": "email_verified",
+        "Value": "true"
+      },
+      {
+        "Name": "gender",
+        "Value": "male"
+      },
+      {
+        "Name": "email",
+        "Value": "biser__ivanov@gmail.com"
+      }
+    ],
+    "UserCreateDate": "2021-02-05T16:07:29.173Z",
+    "UserLastModifiedDate": "2021-02-05T16:07:29.173Z",
+    "Enabled": true,
+    "UserStatus": "FORCE_CHANGE_PASSWORD"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <h2 id="createUserPoolClient">Create User Pool Client</h2>
+    <h3>Request</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endpoint</td>
+          <td>http://localhost:3100/createUserPoolClient</td>
+        </tr>
+        <tr>
+          <td>Method</td>
+          <td>POST</td>
+        </tr>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "name": "MyClientApp",
+  "poolId": "us-east-2_D1nRpuh5a"
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Response</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Example body</td>
+          <td>
+            <pre>
+{
+  "UserPoolClient": {
+    "UserPoolId": "us-east-2_D1nRpuh5a",
+    "ClientName": "MyClientApp",
+    "ClientId": "2nlru9p40oc5222p9121qo5okr",
+    "LastModifiedDate": "2021-02-05T17:43:20.949Z",
+    "CreationDate": "2021-02-05T17:43:20.949Z",
+    "RefreshTokenValidity": 30,
+    "TokenValidityUnits": {},
+    "ExplicitAuthFlows": [
+      "ALLOW_USER_SRP_AUTH",
+      "ALLOW_REFRESH_TOKEN_AUTH"
+    ],
+    "AllowedOAuthFlowsUserPoolClient": false,
+    "PreventUserExistenceErrors": "ENABLED"
+  }
+}
+            </pre>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
