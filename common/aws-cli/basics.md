@@ -15,7 +15,7 @@ The expected result is something like _aws-cli/2.1.19 Python/3.7.9 Windows/10 ex
 Because the aws cli is going to access our aws account of course we need to configure credentials.
 
 1. You can get your credentials after login with you aws account on the aws website.
-2. Click your account name (top-right on the screen) and from the drop down select **My security credentials**, then click **Create Access Key** and download it as csv file. Note if someone get your access keys, they can use your account, so keep them secret.
+2. Click your account name (top-right on the screen) and from the drop down select **My security credentials**, then click **Create Access Key** and download it as csv file. Note if someone get your access keys, they can use your account, so keep them secret. Alternatively you can access My security credentials using the IAM service.
 3. Now open the console (cmd) and type:
 
 ```bash
@@ -35,3 +35,7 @@ If you have done everything correctly in your the following folder _Users/your-u
 <img src="./pics/aws-folder.png" alt="drawing" width="300"/>
 
 Important info here is to use this credentials only on your computer, not to upload them to any aws service (EC2 for example), because people can steal them and impersonate you with actions you never did. The best and recommended way for authorizing is to use IAM role and attaching that role to instance of a service.
+
+## AWS CloudShell
+
+CloudShell is alternative to the local CLI installing and usage. For example we can open CloudShell in the management console and it will open as a console, where we can run the same commands like _aws --version_ etc.

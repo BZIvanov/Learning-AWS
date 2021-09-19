@@ -7,4 +7,14 @@ Every service is living in specific region (except some). For example if you hav
 
 And some services are global, for example IAM. If you select IAM service regions list will be greyed out and not selectable, because it is global service.
 
-_Availability zones_ - every regions has multiple AZs (minimum 2). Basically they are data centers for 1 region, but working in isolation from one another in case of some kind of disaster.
+### Regions
+
+- regions are all around the world
+- they are named like us-east-1, us-west-2, etc...
+- a region is a cluster of data centers
+- not all amazon services are available in all of the regions
+
+### Availability Zones (AZ)
+
+- each region has multiple AZs (minimum 2, maximum 6, usually 3)
+- AZs are data centers for 1 region, but working in isolation from one another in case of some kind of disaster.
