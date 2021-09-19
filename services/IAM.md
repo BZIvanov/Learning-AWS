@@ -3,9 +3,9 @@
 Main points in IAM are:
 
 - Users - usually physical person
-- Groups - admins, devops etc.
-- Roles - internal usage with AWS resources. Also collection of policies, for example ("SNS:CreateTopic", "SNS:Subscribe")
+- Groups - Could be admins, devops etc. Groups only contain users, not another groups. One user can be in more than 1 group
 - Policies - they define what each of the 3 above can do. Can be _Allow_ or _Deny_. An example policy below. _Sid_ stands for statement id.
+- Roles - internal usage with AWS resources. Also collection of policies, for example ("SNS:CreateTopic", "SNS:Subscribe"). Roles are similar to policies, they define what services are allowed to do similarly like what users are allowed to do by policies.
 
 ```
 {
