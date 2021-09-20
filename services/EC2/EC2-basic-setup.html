@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        max-width: 1000px;
+        border: 1px solid darkblue;
+        padding: 10px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>EC2</title>
+  </head>
+  <body>
+    <div>
+      <h2>EC2 - Elastic Compute Cloud</h2>
+    </div>
+    <div>
+      <h3>Basic usage</h3>
+      <ol>
+        <li>
+          <p>From the search search for <b>EC2</b></p>
+        </li>
+        <li>
+          <p>
+            Find <b>Launch instance</b> button in the <b>Dashboard</b> or from
+            the menu on the left click <b>Instances</b> and again click
+            <b>Instances</b>
+          </p>
+          <img src="./pics/instance.png" alt="instance" />
+        </li>
+        <li>
+          <p>
+            From the <b>Quick Start</b> we will select with Linux 2 AMI 64-bit
+            and click <b>Select</b> button
+          </p>
+          <img src="./pics/quickstart.png" alt="quick start" />
+        </li>
+        <li>
+          <p>
+            Select the instance type and click
+            <b>Next: Configure Instance Details</b>
+          </p>
+          <img src="./pics/instancetype.png" alt="instance type" />
+        </li>
+        <li>
+          <p>Select 1 instance and leave rest as default and scroll down</p>
+          <img
+            src="./pics/configure-instance-1.png"
+            alt="configure instance first"
+          />
+        </li>
+        <li>
+          <p>Defaults here as well</p>
+          <img
+            src="./pics/configure-instance-2.png"
+            alt="configure instance second"
+          />
+        </li>
+        <li>
+          <p>
+            Copy the below commands in the optional textarea. These are commands
+            which will run everytime we start our instance. After copy pasted
+            the commands in the textarea click <b>Next: Add Storage</b>
+          </p>
+          <div style="background-color: aliceblue; padding: 5px">
+            <code>yum update -y</code>
+            <br />
+            <code>yum install -y httpd</code>
+            <br />
+            <code>systemctl start httpd</code>
+            <br />
+            <code>systemctl enable httpd</code>
+            <br />
+            <code
+              >echo "Hello World from $(hostname -f)" &gt;
+              /var/www/html/index.html</code
+            >
+          </div>
+          <img
+            src="./pics/configure-instance-3.png"
+            alt="configure instance third"
+          />
+        </li>
+        <li>
+          <p>Click <b>Next: Add Tags</b></p>
+          <img src="./pics/storage.png" alt="storage" />
+        </li>
+        <li>
+          <p>
+            Click <b>Add Tag</b> button if you want to add tags. Tags are
+            key:value pairs. After added all the tags you want click
+            <b>Next: Configure Security Group</b>
+          </p>
+          <img src="./pics/tags.png" alt="tags" />
+        </li>
+        <li>
+          <p>
+            Here by default we only have the <b>SSH</b> row for our new security
+            group. Click the <b>Add Rule</b> button and add HTTP type so we can
+            access our instance from anywhere. Click <b>Review and Launch</b>
+          </p>
+          <img src="./pics/securitygroup.png" alt="security group" />
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
