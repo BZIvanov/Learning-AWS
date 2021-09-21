@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EBS</title>
+  </head>
+  <body>
+    <div>
+      <h2>EBS - Elastic Block Store</h2>
+      <p>EBS is a network drive working similarly to the USB sticks</p>
+      <ul>
+        <li>you can attach on an instance while it is running</li>
+        <li>persist data even after termination of the EC2 instance</li>
+        <li>can be mounted to 1 instance at a time</li>
+        <li>it can detached from 1 instance and attached to another</li>
+        <li>
+          it's locked to Availability Zone (AZ), for example you can't use from
+          us-east-1a to us-east-1b
+        </li>
+        <li>
+          before detaching EBS volumes it is recommended, not necessary to
+          create a snapshot
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
