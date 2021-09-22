@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IAM Best practices</title>
+  </head>
+  <body>
+    <h2>Best practices</h2>
+    <p>
+      It is not good practice to use your root account, best practice is to
+      create IAM User. Root account is recommended to use only to create your
+      account.
+    </p>
+    <ul>
+      <li>One IAM user per physical person</li>
+      <li>One IAM role per application</li>
+      <li>IAM credentials should never be shared (code, commits etc.)</li>
+      <li>Root account is only for initial setup</li>
+      <li>Never use root IAM credentials</li>
+      <li>Use MFA (multi factor authentication) fo every account</li>
+    </ul>
+  </body>
+</html>

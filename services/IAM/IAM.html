@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IAM</title>
+  </head>
+  <body>
+    <div><h2>IAM - Identity and Access Managment</h2></div>
+    <div>
+      <p>Main points in IAM are:</p>
+      <ul>
+        <li>Users - usually physical person</li>
+        <li>
+          Groups - Could be admins, devops etc. Groups only contain users, not
+          another groups. One user can be in more than 1 group
+        </li>
+        <li>
+          Policies - they define what each of the 3 above can do. Can be
+          <b>Allow</b> or <b>Deny</b>
+        </li>
+        <li>
+          Roles - internal usage with AWS resources. Also collection of
+          policies, for example ("SNS:CreateTopic", "SNS:Subscribe"). Roles are
+          similar to policies, they define what services are allowed to do
+          similarly like what users are allowed to do by policies
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
