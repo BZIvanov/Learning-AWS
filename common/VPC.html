@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VPC</title>
+  </head>
+  <body>
+    <div>
+      <h2>VPC - Virtual Private Cloud</h2>
+      <p>VPC is private network where we can deploy our resources</p>
+    </div>
+    <div>
+      <h3>Subnets</h3>
+      <p>Subnets allow us to partition our network inside the VPC</p>
+      <p>Public subnet is a subnet which is accessible from internet</p>
+      <p>Private subnet is a subnet which is not accessible from internet</p>
+      <p>
+        Access from internet and between subnets is defined in
+        <b>Route Tables</b>
+      </p>
+    </div>
+    <div>
+      <h3>Internet Gateway and NAT Gateways</h3>
+      <p>
+        Internet Gateways provide us a way to access our VPC from internet.
+        Public subnets have a route to the internet gateway
+      </p>
+      <p>
+        NAT Gateways and NAT Instances provide us a way our Private Subnets to
+        access internet while remaining private.
+      </p>
+    </div>
+    <div>
+      <h3>VPC Endpoints</h3>
+      <p>VPC Endpoints provide private access to AWS service within VPC</p>
+    </div>
+  </body>
+</html>
