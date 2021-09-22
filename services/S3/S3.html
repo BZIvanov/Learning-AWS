@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>S3</title>
+  </head>
+  <body>
+    <div>
+      <h2>S3 - Simple Storage Service</h2>
+      <p>S3 allows us to store objects (files) in buckets (directories)</p>
+    </div>
+    <div>
+      <h3>Bucket</h3>
+      <p>
+        Buckets must have a globally unique name and they are defined at the
+        region level. S3 console is global, but the buckets are placed in
+        different regions.
+      </p>
+    </div>
+    <div>
+      <h2>Encryption</h2>
+      <p>Encryption can be done on a file level or for the whole bucket.</p>
+      <p>SSE stands for server side encryption</p>
+      <p>Encryption types</p>
+      <ul>
+        <li>
+          <b>SSE - S3</b> - this encryption uses keys handled and managed by S3
+        </li>
+        <li>
+          <b>SSE - KMS</b> - this encryption uses keys handled and managed by
+          KMS
+        </li>
+        <li>
+          <b>SSE - C</b> - this encryption uses keys managed by the customer
+          outside AWS
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
