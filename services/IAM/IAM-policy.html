@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>IAM Policy</title>
+  </head>
+  <body>
+    <div>
+      <h2>Policies</h2>
+      <h3>Policy example</h3>
+      <p><b>Sid</b> stands for statement id</p>
+      <pre>
+{
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Sid": "FullAccess",
+         "Effect": "Allow",
+         "Action": ["s3:*"],
+         "Resource": ["*"]
+      },
+   ]
+}
+      </pre>
+    </div>
+  </body>
+</html>
