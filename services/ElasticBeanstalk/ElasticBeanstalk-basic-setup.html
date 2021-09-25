@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        max-width: 1000px;
+        border: 1px solid darkblue;
+        padding: 10px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>ElasticBeanstalk</title>
+  </head>
+  <body>
+    <div>
+      <h2>Basic usage</h2>
+      <ol>
+        <li>
+          <p>
+            Search for elasticbeanstalk, open the service and clikc
+            <b>Create Application</b>
+          </p>
+        </li>
+        <li>
+          <p>First give a name for your app</p>
+          <img src="./pics/elastic-beanstalk-setup1.png" alt="preview" />
+          <p>Optionally provide some tags</p>
+          <img src="./pics/tags.png" alt="preview" />
+          <p>Select the platform you want to use</p>
+          <img src="./pics/platform.png" alt="preview" />
+          <p>
+            For this simple demo we don't have our own code so we will create
+            some default.
+          </p>
+          <img src="./pics/create-app.png" alt="preview" />
+          <p>
+            Now you have your new application and environment created for you.
+            Note that this will also create EC2 instance, Security Groups, S3
+            bucket etc., so you will also need to remove them if you don't want
+            to use the create application anymore.
+          </p>
+          <p>
+            From the menu on the left you can more info about details for the
+            application.
+          </p>
+          <img src="./pics/webapp.png" alt="preview" />
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
