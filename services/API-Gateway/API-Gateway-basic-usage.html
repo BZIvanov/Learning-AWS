@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        max-width: 1000px;
+        border: 1px solid darkblue;
+        padding: 10px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>API Gateway</title>
+  </head>
+  <body>
+    <div>
+      <h2>Basic usage</h2>
+      <ol>
+        <li>
+          <p>
+            Click the button <b>Create API</b> to create new API (you can have
+            multiple), if you don't already have one go to the next step
+          </p>
+        </li>
+        <li>
+          Select the type of an API you want to use, <b>REST API</b> in this
+          case and click <b>Build</b> button
+        </li>
+        <li>
+          <p>
+            Keep the radio button selected as <b>New API</b>. And in the
+            settings section provide some name for the API and some description.
+            And click <b>Create API</b> button.
+            <img src="./pics/api-new.png" alt="drawing" />
+          </p>
+        </li>
+        <li>
+          <p>
+            Click the <b>Actions</b> button and from dropdown menu select
+            <b>Create Resource</b>. Resources are the parts of the url.
+          </p>
+        </li>
+        <li>
+          <p>Name the resource and click <b>Create Resource</b></p>
+          <img src="./pics/api-resource.PNG" alt="drawing" />
+          <p>
+            <em>Note</em>: <b>Configure as proxy resource</b> - means that this
+            resource will also catch all other resources and methods. Some use
+            case for catching everything would be if we are creating some kind
+            of full stack application.
+          </p>
+          <p>
+            <em>Note</em>: <b>Enable API Gateway CORS</b> - the browser will
+            check if our api/server allows to be accessed. By checking this box
+            we will be also provided with resource with type OPTIONS, where in
+            the Integration Response we can set our cors headers. By checking
+            this box we will have some already predefined in the OPTIONS
+            resource in the Integration response.
+          </p>
+          <p>
+            Now for the OPTIONS method in the Integration response we have these
+            default headers, after we checked cors. Important note here is that
+            cors headers will be added only for the OPTIONS method, but once we
+            add the actual method we going to use (POST for example) we need to
+            add the missing cors headers manually. Set the header key in the
+            <b>Method Response</b> and header value in
+            <b>Integration Response</b>.
+          </p>
+          <p>
+            Alternative and easy way to also add cors headers is while selected
+            specific resource from the <b>Action</b> button to select
+            <b>Enable CORS</b>. This way we can add for all methods for that
+            resource.
+          </p>
+          <img src="./pics/api-cors.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Make sure you marked/selected the resource so you can give it a
+            method type. Click again the <b>Actions</b> button and click
+            <b>Create Method</b> for example GET method.
+          </p>
+        </li>
+        <li>
+          <p>
+            Click the small check button and you will be given the option to
+            define some kind of controller. For example a Lambda Function. Click
+            <b>Save</b> to finish the process. Of course if you don't have any
+            Lambda function to use you will need to create one or if you do have
+            type its name. Also confirm to give the APIGateway permission to use
+            the lambda function.
+          </p>
+          <img src="./pics/api-controller.PNG" alt="drawing" />
+          <p>
+            <em>Note</em>: <b>Lambda Function</b> - we can run any type of code
+            on demand, whenever this resource is reached.
+          </p>
+          <p>
+            <em>Note</em>: <b>HTTP</b> - with this option we can for example
+            forward the request to another API.
+          </p>
+          <p>
+            <em>Note</em>: <b>Mock</b> - it is some kind of dummy endpoint which
+            will do nothing, we could send some dummy data.
+          </p>
+          <p>
+            <em>Note</em>: <b>AWS Service</b> - with this option we can call
+            another AWS service.
+          </p>
+          <p>
+            <em>Note</em>: <b>Use Lambda Proxy Integration</b> - if checked it
+            will pass everything from the request as json to the lambda
+            function. It will be now our responsibility to return meaningful
+            response, otherwise we will get error.
+          </p>
+        </li>
+        <li>
+          <p>
+            Once saved you will see the following setup. By clicking the
+            <b>TEST</b> icon you can test the result of the function. To be able
+            to see this cycle view you need to have selected
+            <b>Resources</b> from the menu on the left.
+          </p>
+          <img src="./pics/api-req-res.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Click again the <b>Action</b> button and click <b>Deploy API</b>.
+            From the popup window select Deployment Stage and give it a name and
+            optionally description and click <b>Deploy</b>. Everytime we make
+            changes on our API we have to deploy changes, otherwise they won't
+            take effect.
+          </p>
+          <img src="./pics/api-deploy.png" alt="drawing" />
+        </li>
+        <li>
+          <p>And here you can see the generated route.</p>
+          <img src="./pics/api-deployed.PNG" alt="drawing" />
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
