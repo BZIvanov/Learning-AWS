@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DynamoDB with Lambda</title>
+  </head>
+  <body>
+    <div>
+      <h2>DynamoDB basic usage</h2>
+      <ol>
+        <li>
+          <p>
+            Give a <b>Table name</b> and <b>Partition key</b> and click
+            <b>Create</b> button
+          </p>
+          <img src="./pics/create-table.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>You will get to this details view after the table is created</p>
+          <img src="./pics/overview.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Now to create new item (row in the db) click the <b>Items</b> tab,
+            then <b>Create item</b> button. In this example we will give dummy
+            UserId manually and to add more columns click the plus sign, then
+            <b>Append</b> and select the type of value you want to add and click
+            the <b>Save</b> button
+          </p>
+          <img src="./pics/add-item.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>Now we can see the data in our table</p>
+          <img src="./pics/table-row.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Now after we have database we can access it in lambda function. For
+            more info on aws-sdk check in common folder
+          </p>
+        </li>
+        <li>
+          <p>This is how our lambda function should look like:</p>
+          <pre>
+const AWS = require('aws-sdk');
+const dynamodb = new AWS.DynamoDB({
+  region: 'us-east-2',
+  apiVersion: '2012-08-10',
+});
+
+exports.handler = (event, context, callback) => {
+  const params = {
+    Item: {
+      UserId: {
+        S: '1234a', // S stands for string
+      },
+      Age: {
+        N: '29', // N stands for number
+      },
+      Height: {
+        N: '181', // numbers we also send as string
+      },
+      Income: {
+        N: '2300',
+      },
+    },
+    TableName: 'compare-yourself',
+  };
+  dynamodb.putItem(params, function (err, data) {
+    if (err) {
+      console.log(err);
+      callback(err);
+    } else {
+      console.log(data);
+      callback(null, data);
+    }
+  });
+};           
+          </pre>
+        </li>
+        <li>
+          <p>
+            But this setup still will not work, because by default lambda
+            function has no rights to store data, for its role it has only
+            logging rights. To add this kind of rights we will need IAM service
+          </p>
+        </li>
+        <li>
+          <p>
+            Go to AWS managment console and search for IAM service. Click
+            <b>Roles</b>, click the role name which our lambda function is
+            using, click <b>Attach policies</b> search for dynamo and check the
+            box for <b>AmazonDynamoDBFullAccess</b> and click
+            <b>Attach policy</b>. Now you should see this policy also added for
+            this role
+          </p>
+          <img src="./pics/attach-policy.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Now if you run <b>Test</b> on the lambda function to execute it, you
+            should see the data in DynamoDB
+          </p>
+        </li>
+        <li>
+          <p>
+            And if you followed the APIGateway Integration Request setup, you
+            can get dynamic values like this, not just hardcoded ones
+          </p>
+          <pre>
+// this is what we have for the Mapping template in the Integration Response for our APIGateway service
+#set($inputRoot = $input.path('$'))
+{
+  "age" : "$inputRoot.age",
+  "height" : "$inputRoot.height",
+  "income" : "$inputRoot.income"
+}
+// note that values are double quotes to have them as strings, because for DynamoDB we always pass values as strings
+// Dynamo is handling the conversion to numbers
+          </pre>
+          <hr />
+          <pre>
+const AWS = require('aws-sdk');
+const dynamodb = new AWS.DynamoDB({
+  region: 'us-east-2',
+  apiVersion: '2012-08-10',
+});
+
+exports.handler = (event, context, callback) => {
+  const params = {
+    Item: {
+      UserId: {
+        S: 'user_' + Math.random(),
+      },
+      Age: {
+        N: event.age,
+      },
+      Height: {
+        N: event.height,
+      },
+      Income: {
+        N: event.income,
+      },
+    },
+    TableName: 'compare-yourself',
+  };
+  dynamodb.putItem(params, function (err, data) {
+    if (err) {
+      console.log(err);
+      callback(err);
+    } else {
+      console.log(data);
+      callback(null, data);
+    }
+  });
+};
+          </pre>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
