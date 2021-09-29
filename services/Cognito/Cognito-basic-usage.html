@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        max-width: 1000px;
+        border: 1px solid darkblue;
+        padding: 10px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Cognito</title>
+  </head>
+  <body>
+    <div>
+      <h2>Basic usage</h2>
+      <ol>
+        <li>
+          <p>
+            You have two main options: <b>Manage User Pools</b> (for working
+            with users) and <b>Manage Identity Pools</b> (for working for
+            example with google, facebook)
+          </p>
+        </li>
+        <li>
+          <p>
+            Select the option <b>Manage User Pools</b> click the button
+            <b>Create a user pool</b>. Now give it a name and select
+            <b>Step through settings</b>
+          </p>
+          <p>This pool will manage users signed up in our application</p>
+          <img src="./pics/create-user-pool.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>Proceed with selection as on the screenshots</p>
+          <img src="./pics/config-user-pool.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-2.png" alt="drawing" />
+          <img src="./pics/config-user-pool-3.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-4.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-5.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-6.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-7.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-8.PNG" alt="drawing" />
+
+          <p>
+            On the next step click <b>Add an app client</b>. Important here is
+            to uncheck <b>Generate client secret</b>.
+          </p>
+          <img src="./pics/config-user-pool-9.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-10.PNG" alt="drawing" />
+          <img src="./pics/config-user-pool-11.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>Click <b>Create Pool</b> after reviewing the selected settings</p>
+        </li>
+        <li>
+          <p>Set domain name for your app</p>
+          <img src="./pics/domain-name.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>Here is the workflow of what is actually happening</p>
+          <img src="./pics/auth-flow.PNG" alt="drawing" />
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
