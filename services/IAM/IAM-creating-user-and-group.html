@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        max-width: 1000px;
+        border: 1px solid darkblue;
+        padding: 10px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>IAM</title>
+  </head>
+  <body>
+    <div>
+      <h2>Basic usage</h2>
+      <ol>
+        <li>
+          <p>
+            Click <b>Users</b> from the menu on the left, then <b>Add User</b>
+          </p>
+          <img src="./pics/new-user.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Fill the following information. The 4th step is just to review the
+            selection from the previous steps. Download the csv file on the 5th
+            step
+          </p>
+          <img src="./pics/create-user.PNG" alt="drawing" />
+          <img src="./pics/create-user-2.PNG" alt="drawing" />
+          <img src="./pics/create-user-3.PNG" alt="drawing" />
+          <img src="./pics/create-user-4.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>Now you can see your new user in the <b>Users</b> section</p>
+        </li>
+        <li>
+          <p>
+            Next step is to create a group. Click <b>Groups</b> from the menu on
+            the left, then <b>Create new group</b> button
+          </p>
+          <img src="./pics/new-group.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Give it a name. Attach policies you need. Third step is to review
+            the selection so just click <b>Create New Group</b>
+          </p>
+          <img src="./pics/create-group.PNG" alt="drawing" />
+          <img src="./pics/create-group-2.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Now you can find your groups in the <b>Groups</b> section. Click it
+            to add users in the group. From the <b>Users</b> tab click
+            <b>Add Users to Group</b>, check all the users you want to add and
+            click <b>Add Users</b>
+          </p>
+          <img src="./pics/add-to-group.PNG" alt="drawing" />
+          <img src="./pics/add-to-group-2.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Now after we have added our user to our admin group the user will
+            inherit all of the admin group permissions. So we can go back to
+            user's permission and remove <b>Administrator access</b> because he
+            will inherit it from the group and if we in future remove the user
+            from the admin group he will automatically lose the admin rights
+          </p>
+          <img src="./pics/attached-directly.PNG" alt="drawing" />
+          <p>
+            <b>Attached directly</b> policies are also hard to manage, because
+            they go with the specific user, not on a group level
+          </p>
+        </li>
+        <li>
+          <p>
+            Something also good to do is to update password policy for all IAM
+            users. Click <b>Account settings</b> from the menu on the left, then
+            click <b>Change password policy</b>
+          </p>
+          <img src="./pics/password-policy.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Set the requirements for the policy which each user must follow,
+            when setting up a password. And click <b>Save changes</b>
+          </p>
+          <img src="./pics/password-settings.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            And because we don't want to use the root account we will also use
+            alias
+          </p>
+          <img src="./pics/use-alias.PNG" alt="drawing" />
+          <img src="./pics/create-alias.PNG" alt="drawing" />
+          <img src="./pics/new-alias.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>Now we can use that new alias URL to log in with it</p>
+          <img src="./pics/login.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Reset your password now, because this is requirement for our IAM
+            users
+          </p>
+          <img src="./pics/password-reset.png" alt="drawing" />
+        </li>
+        <li>
+          <p>And now you will be logged in with your new user</p>
+          <img src="./pics/new-login.png" alt="drawing" />
+        </li>
+        <li>
+          That's it, now you have admin user which you can use instead of your
+          root user account, also alias replacing the account as a number
+        </li>
+        <li>
+          One more thing is to also set MFA for this new user. To do that click
+          your username (top-right on the screen) and from the drop down select
+          <b>My security credentials</b>. Then <b>Assign MFA device</b>, then
+          <b>Virtual MFA device</b>. Scan the QR code and finish the process
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
