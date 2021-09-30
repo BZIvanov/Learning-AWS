@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        max-width: 1000px;
+        border: 1px solid darkblue;
+        padding: 10px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>IAM</title>
+  </head>
+  <body>
+    <div>
+      <h2>Creating a policy and attaching it on a role</h2>
+      <p>
+        If we are working with DynamoDB it is not good practice to use the full
+        access policy, we should use custom and more specific serving only the
+        purpose it needs, not unlimited rights.
+      </p>
+
+      <ol>
+        <li>
+          <p>
+            To create a policy go to IAM service and click <b>Policies</b> and
+            click <b>Create policy</b>
+          </p>
+          <img src="./pics/create-policy.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            Select the <b>Service</b>, then select which actions you want to use
+            for this role (PutItem in this example), select all you need and
+            click the <b>close</b> link. Also provide the ARN(Amazon Resource
+            Name) code for the resource you want to use (table in this example,
+            because we are creating policy for a DB). You can see the DynamoDB
+            table ARN in the Overview tab. Click <b>AddARN</b> link and paste
+            the arn code
+          </p>
+          <img src="./pics/policy-config.PNG" alt="drawing" />
+        </li>
+        <li>
+          <p>
+            After clicking <b>Review policy</b>, now give it a name and click
+            <b>Create policy</b>
+          </p>
+        </li>
+        <li>
+          <p>
+            Go to <b>Roles</b> from the menu on the left, select some role and
+            from the <b>Attach policies</b> button you can attach our newly
+            created policy. Search it and select it by checking the box on the
+            left and click <b>Attach policy</b> buton
+          </p>
+          <img src="./pics/attach-policy.png" alt="drawing" />
+        </li>
+        <li>
+          Basically the cycle is to create policy for some service and some
+          functionalities of that service and then to use that policy for some
+          role which will be allowed to do only whatever is specified in the
+          policy. Then we can use that role on some lambda function for example
+          to limit the rights only to what we expect that function to do
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>
