@@ -39,3 +39,5 @@ Important info here is to use this credentials only on your computer, not to upl
 ## AWS CloudShell
 
 CloudShell is alternative to the local CLI installing and usage. For example we can open CloudShell in the management console and it will open as a console, where we can run the same commands like _aws --version_ etc.
+
+CloudShell is not available in all regions, you can google the availability list or check if you have terminal icon left on your name (top-right) in the managment console.
