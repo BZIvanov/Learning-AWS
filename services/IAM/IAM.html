@@ -7,7 +7,7 @@
   <body>
     <div><h2>IAM - Identity and Access Managment</h2></div>
     <div>
-      <p>Main points in IAM are:</p>
+      <h3>Main points in IAM are:</h3>
       <ul>
         <li>Users - usually physical person</li>
         <li>
@@ -15,14 +15,38 @@
           another groups. One user can be in more than 1 group
         </li>
         <li>
-          Policies - they define what each of the 3 above can do. Can be
+          Policies - they define what each of the 2 above can do. Can be
           <b>Allow</b> or <b>Deny</b>
         </li>
         <li>
           Roles - internal usage with AWS resources. Also collection of
           policies, for example ("SNS:CreateTopic", "SNS:Subscribe"). Roles are
           similar to policies, they define what services are allowed to do
-          similarly like what users are allowed to do by policies
+          similarly like what users are allowed to do by policies. Common roles
+          are EC2 instance roles, Lambda function roles, with the roles this
+          services are allowed to do some actions.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>MFA setup</h3>
+      <p>When setting up MFA device we can choose from the following options</p>
+      <ul>
+        <li>Virtual MFA device</li>
+        <li>U2F Security key</li>
+        <li>Other hardware MFA device</li>
+      </ul>
+    </div>
+    <div>
+      <h3>IAM Security tools</h3>
+      <ul>
+        <li>
+          IAM credentials report (account level) - report that lists all account
+          users and their credentials status
+        </li>
+        <li>
+          IAM access advisor (user level) - shows granted permissions and when
+          they were last accessed
         </li>
       </ul>
     </div>
