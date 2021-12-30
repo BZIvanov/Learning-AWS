@@ -8,5 +8,39 @@
     <div>
       <h2>RDS - Relational Database Service</h2>
     </div>
+    <div>
+      <h3>Data recovery types</h3>
+      <ul>
+        <li>Automated backups</li>
+        <li>
+          Snapshots - they are done manually and are still kept after we delete
+          the RDS instance.
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Multi AZ RDS</h3>
+      <p>
+        Multi AZ allows us to have the exact copy of our DB in another AZ. In
+        case of some disaster automatically to copy will be used.
+      </p>
+      <p>
+        The intention of Multi AZ is for disaster recovery, not performance
+        improvements. For performance improvements we would use Read Replicas.
+      </p>
+    </div>
+    <div>
+      <h3>Read Replica</h3>
+      <p>
+        RR allows us to have read-only copy of our production database. This is
+        achieved by using async replication from our primary RDS instance to the
+        read replica.
+      </p>
+      <p>
+        Read Replicas can be promoted to be a database. This breaks the
+        replication.
+      </p>
+      <p>Each RR will have its own DNS endpoint.</p>
+    </div>
   </body>
 </html>
