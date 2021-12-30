@@ -23,5 +23,37 @@
         </li>
       </ul>
     </div>
+    <div>
+      <p>
+        One way to explain EBS with analogy is if EC2 is virtual server, then
+        EBS is virtual disk.
+      </p>
+    </div>
+    <div>
+      <h3>EBS volume types</h3>
+      <ul>
+        <li>
+          General purpose SSD (GP2) - balances both proce and performance. Good
+          for less than 10000 IOPS requirements.
+        </li>
+        <li>
+          Provisioned IOPS SSD (I01) - good for intensive I/O applications such
+          as large relational or NoSQL databases. Good for 10000-20000 IOPS
+          requirements.
+        </li>
+        <li>
+          Throughput optimized HDD (ST1) - good for big data, data warehouse,
+          log processing. It cannot be a boot volume.
+        </li>
+        <li>
+          Cold HDD (SC1) - good for low cost storage for infrequently accessed
+          workloads. It cannot be a boot volume.
+        </li>
+        <li>
+          Magnetic (Standard) - lowest cost per gigabyte option, which is
+          bootable. This is a legacy option.
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
