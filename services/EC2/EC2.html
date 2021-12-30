@@ -13,5 +13,33 @@
         choice is Linux.
       </p>
     </div>
+    <div>
+      <h3>Security groups</h3>
+      <p>
+        SGs control how the traffic is allowed into or out of our EC2 instances.
+        They can reference by IP or by another Security group.
+      </p>
+      <p>One SG can be attached to multiple EC2 instances.</p>
+      <p>
+        If our application is not accessible (timeout) it means it is most
+        likely security group issue. And if the connection is refused it is
+        probably application error or it is not launched.
+      </p>
+      <div>
+        <h4>Common ports to know</h4>
+        <ul>
+          <li>21 - FTP(File transfer protocol)</li>
+          <li>22 - SSH</li>
+          <li>
+            22 - SFTP(Secure file transfer protocol), upload files using SSH
+          </li>
+          <li>80 - HTTP</li>
+          <li>443 - HTTPS</li>
+          <li>
+            3389 - RDP(Remote desktop protocol), log into a windows instance
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
