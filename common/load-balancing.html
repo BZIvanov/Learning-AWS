@@ -23,27 +23,53 @@
       </p>
       <p>Stickiness uses a cookie which has expiration date</p>
     </div>
+    <hr />
     <div>
       <h3>Load balancer types</h3>
       <ul>
         <li>Classic Load Balancer</li>
         <li>Application Load Balancer</li>
         <li>Network Load Balancer</li>
-        <li>Elastic Load Balancer</li>
+        <li>Gateway Load Balancer</li>
       </ul>
+      <p>
+        Click
+        <a
+          href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/load-balancer-types.html"
+          target="_blank"
+          >here</a
+        >
+        for more info..
+      </p>
+      <div>
+        <h4>Classic Load Balancer</h4>
+        <ul>
+          <li>Legacy load balancer</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Application Load Balancer</h4>
+        <ul>
+          <li>Forward HTTP and HTTPS traffic</li>
+          <li>Routing based on path, hostname or query url</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Network Load Balancer</h4>
+        <ul>
+          <li>Forward TCP and UDP traffic</li>
+          <li>Extreme performance, millions of requests per second</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Additional load balancers info</h4>
+        <p>
+          The user public IP will not be used by the load balancer. The LB will
+          go to the EC2 instance with the private IP. If we are still interested
+          in the user's IP we can check the header <b>X-Forwarded-For</b>.
+        </p>
+      </div>
     </div>
-    <div>
-      <h3>Application Load Balancer</h3>
-      <ul>
-        <li>Forward HTTP traffic</li>
-        <li>Routing based on path, hostname or query url</li>
-      </ul>
-    </div>
-    <div>
-      <h3>Network Load Balancer</h3>
-      <ul>
-        <li>Forward TCP and UDP traffic</li>
-      </ul>
-    </div>
+    <hr />
   </body>
 </html>
