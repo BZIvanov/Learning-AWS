@@ -11,6 +11,7 @@
         Load balancers are servers that forward internet traffic to multiple
         servers
       </p>
+      <p>EBS (Elastic Load Balancer) is load balancer managed by AWS.</p>
     </div>
     <div>
       <h3>Stickiness</h3>
@@ -22,6 +23,9 @@
         Stickiness works for Classic Load Balancer and Application Load Balancer
       </p>
       <p>Stickiness uses a cookie which has expiration date</p>
+      <p>
+        Use case to use stickiness is for example to keep the user's session.
+      </p>
     </div>
     <hr />
     <div>
@@ -48,14 +52,14 @@
         </ul>
       </div>
       <div>
-        <h4>Application Load Balancer</h4>
+        <h4>Application Load Balancer (Layer 7)</h4>
         <ul>
           <li>Forward HTTP and HTTPS traffic</li>
           <li>Routing based on path, hostname or query url</li>
         </ul>
       </div>
       <div>
-        <h4>Network Load Balancer</h4>
+        <h4>Network Load Balancer (Layer 4)</h4>
         <ul>
           <li>Forward TCP and UDP traffic</li>
           <li>Extreme performance, millions of requests per second</li>
@@ -71,5 +75,31 @@
       </div>
     </div>
     <hr />
+    <div>
+      <h3>Health Checks</h3>
+      <p>
+        Load balancing are first checking if the EC2 instance is healthy and if
+        it is not they will not send the traffic to it.
+      </p>
+    </div>
+    <div>
+      <h3>Loab balancer Security groups</h3>
+      <p>
+        In general if we have load balancers directing traffic to EC2 instances
+        we would make our EC2 instances security groups to allow only traffic
+        from the load balancer security group and not some IPs for example.
+      </p>
+    </div>
+    <div>
+      <h3>Connection Draining / Deregistration Delay</h3>
+      <p>
+        Deregistration delay is the time when our EC2 instance is marked as
+        unhealthy, but there are still sent requests to the instance.
+      </p>
+      <p>
+        The default time is 300 seconds to stop sending requests to the
+        deregistering instance.
+      </p>
+    </div>
   </body>
 </html>

@@ -12,7 +12,7 @@
         <li>you can attach on an instance while it is running</li>
         <li>persist data even after termination of the EC2 instance</li>
         <li>can be mounted to 1 instance at a time</li>
-        <li>it can detached from 1 instance and attached to another</li>
+        <li>it can be detached from 1 instance and attached to another</li>
         <li>
           it's locked to Availability Zone (AZ), for example you can't use from
           us-east-1a to us-east-1b
@@ -24,6 +24,15 @@
       </ul>
     </div>
     <div>
+      <h3>Snapshots</h3>
+      <p>
+        We can create snapshots from our EBS volumes. Snapshot is also useful if
+        we want to move EBS volume from one AZ to another, we do that by just
+        creating new volume based on the snapshot. We can also copy snapshots
+        across regions.
+      </p>
+    </div>
+    <div>
       <p>
         One way to explain EBS with analogy is if EC2 is virtual server, then
         EBS is virtual disk.
@@ -33,12 +42,12 @@
       <h3>EBS volume types</h3>
       <ul>
         <li>
-          General purpose SSD (GP2) - balances both proce and performance. Good
-          for less than 10000 IOPS requirements.
+          General purpose SSD (GP2/GP3) - balances both proce and performance.
+          Good for less than 16000 IOPS requirements, the baseline is 3000 IOPS.
         </li>
         <li>
-          Provisioned IOPS SSD (I01) - good for intensive I/O applications such
-          as large relational or NoSQL databases. Good for 10000-20000 IOPS
+          Provisioned IOPS SSD (IO1/IO2) - good for intensive I/O applications
+          such as large relational or NoSQL databases. Good for 16000+ IOPS
           requirements.
         </li>
         <li>
@@ -48,10 +57,6 @@
         <li>
           Cold HDD (SC1) - good for low cost storage for infrequently accessed
           workloads. It cannot be a boot volume.
-        </li>
-        <li>
-          Magnetic (Standard) - lowest cost per gigabyte option, which is
-          bootable. This is a legacy option.
         </li>
       </ul>
     </div>
