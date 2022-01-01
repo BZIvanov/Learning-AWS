@@ -7,13 +7,37 @@
   <body>
     <div>
       <h2>ElastiCache</h2>
-      <p>Elasticache is in-memory database.</p>
+      <p>
+        Elasticache is in-memory database. It helps to relieve the load in RDS.
+      </p>
     </div>
     <div>
       <h2>Elasticache Types</h2>
       <ul>
-        <li>Memcached</li>
-        <li>Redis</li>
+        <li>
+          <span>Memcached</span>
+          <ul>
+            <li>Non persistent</li>
+            <li>No backup and restore</li>
+            <li>No high availability</li>
+          </ul>
+        </li>
+        <li>
+          <span>Redis</span>
+          <ul>
+            <li>Multi AZ with auto-failover</li>
+            <li>Backup and restore features</li>
+            <li>Read replicas and high availability</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h3>Elasticache Strategies</h3>
+      <ul>
+        <li>Lazy loading</li>
+        <li>Cache aside</li>
+        <li>Lazy population</li>
       </ul>
     </div>
   </body>

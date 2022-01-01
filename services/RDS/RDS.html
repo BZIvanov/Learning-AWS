@@ -7,6 +7,10 @@
   <body>
     <div>
       <h2>RDS - Relational Database Service</h2>
+      <p>
+        Big advantage of using RDS is the storage auto scaling. If we are
+        running out of storage it will be increased automatically.
+      </p>
     </div>
     <div>
       <h3>Data recovery types</h3>
@@ -41,6 +45,29 @@
         replication.
       </p>
       <p>Each RR will have its own DNS endpoint.</p>
+      <p>
+        We can have up to 5 RRs. They can be within the same AZ, Cross AZ or
+        Cross Region.
+      </p>
     </div>
+    <hr />
+    <div>
+      <h3>Encryption</h3>
+      <div>
+        <h4>At rest encryption</h4>
+        <p>
+          Encryption has to be defined at launch time. If the master is not
+          encrypted the read replicas also cannot be encrypted.
+        </p>
+      </div>
+      <div>
+        <h4>In-flight encryption</h4>
+        <p>Encryption is done with SSL certificates.</p>
+      </div>
+    </div>
+    <div>
+      <h3>Aurora</h3>
+    </div>
+    <hr />
   </body>
 </html>
