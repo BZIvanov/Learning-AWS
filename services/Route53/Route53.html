@@ -7,7 +7,7 @@
   <body>
     <div>
       <h2>Route53</h2>
-      <p>Route53 is managed DNS (Domain Name Server)</p>
+      <p>Route53 is managed DNS (Domain Name System)</p>
       <p>
         DNS is collection of rules and records which help clients to understand
         how to reach a server through its domain name.
@@ -19,7 +19,29 @@
         <li><b>A</b> - hostname to IPv4</li>
         <li><b>AAAA</b> - hostname to IPv6</li>
         <li><b>CNAME</b> - hostname to hostname</li>
-        <li><b>Alias</b> - hostname to AWS resource</li>
+        <li><b>NS</b> - name servers for the hosted zone</li>
+        <li><b>Alias</b> - hostname to an AWS resource</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Routing policies</h3>
+      <ul>
+        <li>Simple</li>
+        <li>
+          Wighted - control percent of the requests going to specific aws
+          resource. Different wights are assigned to different records.
+        </li>
+        <li>
+          Geolocation - based on user location. For example we can redirect
+          users from Spain to one IP and users from Italy to another IP. We can
+          also specify Default case for all the others.
+        </li>
+        <li>
+          Latency - redirects to resource, that has the least latency close to
+          us
+        </li>
+        <li>Failover - it is based on Health checks</li>
+        <li>Multivalue answer - routing to multiple resources</li>
       </ul>
     </div>
   </body>
