@@ -18,22 +18,37 @@
       </p>
     </div>
     <div>
+      <h2>Versioning</h2>
+      <p>
+        Versioning is done on a bucket level.If versioning is Enabled, when file
+        with the same key is uploaded it is not replacing the previous, but
+        keeping both with different version IDs. And when file is deleted, it
+        still exists, but its type is DeleteMarker.
+      </p>
+    </div>
+    <div>
       <h2>Encryption</h2>
       <p>Encryption can be done on a file level or for the whole bucket.</p>
       <p>SSE stands for server side encryption</p>
       <p>Encryption types</p>
       <ul>
         <li>
-          <b>SSE - S3</b> - this encryption uses keys handled and managed by S3
+          <b>SSE-S3</b> - this encryption uses keys handled and managed by S3.
+          The object is encrypted server side. Must set header
+          <b>"x-amz-server-side-encryption":"AES256"</b> to enable this type of
+          encryption.
         </li>
         <li>
-          <b>SSE - KMS</b> - this encryption uses keys handled and managed by
-          KMS
+          <b>SSE-KMS</b> - this encryption uses keys handled and managed by KMS.
+          Must set header <b>"x-amz-server-side-encryption":"aws:kms"</b> to
+          enable this type of encryption.
         </li>
         <li>
-          <b>SSE - C</b> - this encryption uses keys managed by the customer
-          outside AWS
+          <b>SSE-C</b> - this encryption uses keys managed by the customer
+          outside AWS. HTTPS must be used. Encryption key must be provided in
+          the headers for every request.
         </li>
+        <li><b>Client side encryption</b></li>
       </ul>
     </div>
   </body>
