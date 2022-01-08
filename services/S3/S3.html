@@ -53,17 +53,36 @@
     </div>
     <div>
       <h3>Security</h3>
-      <h2>User based</h2>
+      <h4>User based</h4>
       <p>
         IAM policies which API call should be allowed for a specific user role
         from the IAM console.
       </p>
-      <h2>Resource based</h2>
+      <h4>Resource based</h4>
       <ul>
         <li>Bucket policies - bucket wide rules</li>
         <li>Object Access Control List (ACL) - finer grain</li>
         <li>Bucket Access Control List (ACL) - less common</li>
       </ul>
+    </div>
+    <div>
+      <h3>MFA Delete</h3>
+      <p>Only the bucket owner (root account) can Enable/Disable MFA Delete.</p>
+    </div>
+    <div>
+      <h3>Replication</h3>
+      <p>
+        To use replication, we must enable versioning in source and destination.
+        Copying is asynchronous.
+      </p>
+      <ul>
+        <li>Cross Region Replication (CRR)</li>
+        <li>Same Region Replication (SRR)</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Pre-signed URLs</h3>
+      <p>We can generate pre-signed urls using CLI or SDK.</p>
     </div>
   </body>
 </html>
