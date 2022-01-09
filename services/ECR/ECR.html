@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ECR</title>
+  </head>
+  <body>
+    <div>
+      <h2>ECR - Elastic Container Registry</h2>
+      <p>
+        ECR is private Docker image repository. ECR allows us to store our
+        docker images. It is similar to what Docker Hub does, but ECR is managed
+        by Amazon.
+      </p>
+      <p>Access to ECR is controlled through IAM.</p>
+    </div>
+    <div>
+      <h3>Login command</h3>
+      <p>This is the CLI v2 login command.</p>
+      <code
+        >aws ecr get-login-password --region us-east-1 | docker login --username
+        AWS --password-stdin 12345.dkr.ecr.us-east-1.amazonaws.com
+      </code>
+    </div>
+  </body>
+</html>
