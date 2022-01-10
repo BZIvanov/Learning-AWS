@@ -14,5 +14,50 @@
         health monitoring, instance configuration, etc...
       </p>
     </div>
+    <div>
+      <div>
+        <h3>Deployment Modes</h3>
+        <ul>
+          <li>Single instance - good for development</li>
+          <li>High availability with Load Balancer - good for production</li>
+        </ul>
+      </div>
+      <hr />
+      <div>
+        <h3>Deployment options for updates</h3>
+        <ul>
+          <li>
+            All at once - fastest option, but instances are not available while
+            the downtime for update
+          </li>
+          <li>
+            Rolling update - update few instances at a time and then move to the
+            next bucket once the first one is healthy
+          </li>
+          <li>
+            Rolling with additional batches - like rolling, but spins up new
+            instances to move the batch (this way the old application is still
+            available)
+          </li>
+          <li>
+            Immutable - spins up new instances in a new ASG, deploys version to
+            these instances and then swaps all the instances when everything is
+            healthy
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <h3>Lifecycle Policy</h3>
+      <p>ElasticBeanstalk can store at most 1000 application versions.</p>
+      <p>
+        We can phase out (remove) versions by using lifecycle policy. They can
+        be 2 types:
+      </p>
+      <ul>
+        <li>based on time - old versions are removed</li>
+        <li>based on space - when we have too many versions</li>
+      </ul>
+    </div>
   </body>
 </html>
