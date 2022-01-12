@@ -1,13 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 2px;
+      }
+      .by-us {
+        background-color: peachpuff;
+      }
+      .by-csp {
+        background-color: powderblue;
+      }
+      .legend,
+      .legend td {
+        font-weight: bold;
+        text-align: left;
+      }
+    </style>
     <meta charset="UTF-8" />
     <title>General Info</title>
   </head>
   <body>
     <div>
       <h2>IaaS, PaaS, SaaS</h2>
-      <img src="./pics/AsAService.png" alt="services" />
+      <table>
+        <thead>
+          <tr>
+            <th>Infrastructure as a Service</th>
+            <th>Platform as a Service</th>
+            <th>Software as a Service</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="by-us">Application</td>
+            <td class="by-us">Application</td>
+            <td class="by-csp">Application</td>
+          </tr>
+          <tr>
+            <td class="by-us">Data</td>
+            <td class="by-us">Data</td>
+            <td class="by-csp">Data</td>
+          </tr>
+          <tr>
+            <td class="by-us">Runtime</td>
+            <td class="by-csp">Runtime</td>
+            <td class="by-csp">Runtime</td>
+          </tr>
+          <tr>
+            <td class="by-us">Middleware</td>
+            <td class="by-csp">Middleware</td>
+            <td class="by-csp">Middleware</td>
+          </tr>
+          <tr>
+            <td class="by-us">O/S</td>
+            <td class="by-csp">O/S</td>
+            <td class="by-csp">O/S</td>
+          </tr>
+          <tr class="by-csp">
+            <td>Virtualization</td>
+            <td>Virtualization</td>
+            <td>Virtualization</td>
+          </tr>
+          <tr class="by-csp">
+            <td>Servers</td>
+            <td>Servers</td>
+            <td>Servers</td>
+          </tr>
+          <tr class="by-csp">
+            <td>Storage</td>
+            <td>Storage</td>
+            <td>Storage</td>
+          </tr>
+          <tr class="by-csp">
+            <td>Networking</td>
+            <td>Networking</td>
+            <td>Networking</td>
+          </tr>
+          <tr class="by-us legend">
+            <td colspan="3">Managed by us</td>
+          </tr>
+          <tr class="by-csp legend">
+            <td colspan="3">Managed by Cloud Service Provider</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
