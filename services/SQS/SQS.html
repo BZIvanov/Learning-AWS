@@ -17,5 +17,37 @@
         4 days with optional maximum of 14 days.
       </p>
     </div>
+    <div>
+      <h3>Access policy</h3>
+      <p>Similarly to S3, SQS also have its own access policies.</p>
+      <ul>
+        <li>Cross account access</li>
+        <li>Publish S3 event notifications to SQS</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Message visibility timeout</h3>
+      <p>
+        After a message is polled by a consumer, it becomes invisible to other
+        consumers.
+      </p>
+      <p>
+        By default the message is invisible for 30 seconds, which means that we
+        have to process it in 30 seconds.
+      </p>
+      <hr />
+      <h3>Dead letter queue (DLQ)</h3>
+      <p>
+        If the consumer fails to process the message and 30 seconds of
+        invibility expired the message will be returned to the queue (become
+        visible again). With DLQ we can control how many times we will return
+        the message back to queue. This is useful, because if we keep failing
+        with processing the message, there is the chance that something is wrong
+        with the message and we should stop trying.
+      </p>
+    </div>
+    <div>
+      <h3>Long polling</h3>
+    </div>
   </body>
 </html>
