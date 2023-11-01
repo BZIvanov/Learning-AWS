@@ -16,5 +16,9 @@ And some services are global, for example IAM. If you select IAM service regions
 
 ### Availability Zones (AZ)
 
-- each region has multiple AZs (minimum 2, maximum 6, usually 3)
+- each region has multiple AZs (minimum 3, maximum 6, usually 3)
 - AZs are data centers for 1 region, but working in isolation from one another in case of some kind of disaster.
+
+### Points of Presence (Edge locations)
+
+Points of Presence (PoPs) in AWS are geographically distributed data center locations that enhance the performance and availability of AWS services by reducing latency and improving content delivery, DNS resolution, and network optimization for end-users.
