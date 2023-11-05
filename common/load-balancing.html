@@ -9,7 +9,12 @@
       <h2>Load balancing</h2>
       <p>
         Load balancers are servers that forward internet traffic to multiple
-        servers
+        servers.
+      </p>
+      <p>
+        For example one user tries to access the application and is forwarded to
+        the one EC2 instance, then another user Tries to access the application
+        and is forwarded to the second EC2 instance.
       </p>
       <p>EBS (Elastic Load Balancer) is load balancer managed by AWS.</p>
     </div>
@@ -48,7 +53,7 @@
       <div>
         <h4>Classic Load Balancer</h4>
         <ul>
-          <li>Legacy load balancer</li>
+          <li>Legacy load balancer, it is already deprecated.</li>
         </ul>
       </div>
       <div>
@@ -62,8 +67,14 @@
         <h4>Network Load Balancer (Layer 4)</h4>
         <ul>
           <li>Forward TCP and UDP traffic</li>
-          <li>Extreme performance, millions of requests per second</li>
+          <li>
+            Extreme performance, millions of requests per second with low
+            latency
+          </li>
         </ul>
+      </div>
+      <div>
+        <h4>Gateway Load Balancer (Layer 3)</h4>
       </div>
       <div>
         <h4>Additional load balancers info</h4>
@@ -100,6 +111,15 @@
         The default time is 300 seconds to stop sending requests to the
         deregistering instance.
       </p>
+    </div>
+    <hr />
+    <div>
+      <h3>Sticky Sessions</h3>
+      <p>
+        Stickiness is the possibility of the load balancer to always redirect
+        the same client to the same instance.
+      </p>
+      <p>It is implemented with the help of a cookie.</p>
     </div>
   </body>
 </html>
