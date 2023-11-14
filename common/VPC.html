@@ -10,6 +10,21 @@
       <p>VPC is private network where we can deploy our resources</p>
     </div>
     <div>
+      <h2>CIDR - Classless Inter-Domain Routing</h2>
+      <p>
+        It is a method for efficiently allocating and specifying IP addresses
+        and routing them on the Internet. It is notation to specify IP address
+        ranges for virtual networks, subnets, and other resources.
+      </p>
+      <p>
+        For example, if you have an IP address range starting at 192.168.0.0 and
+        want to allocate 256 addresses, the CIDR notation would be
+        192.168.0.0/24. Here, the "/24" indicates that the first 24 bits of the
+        IP address are fixed as the network address, leaving 8 bits for host
+        addresses (2^8 = 256).
+      </p>
+    </div>
+    <div>
       <h3>Subnets</h3>
       <p>Subnets allow us to partition our network inside the VPC</p>
       <p>Public subnet is a subnet which is accessible from internet</p>
@@ -37,9 +52,18 @@
         like they are the same network.
       </p>
     </div>
+    <hr />
     <div>
       <h3>VPC Endpoints</h3>
-      <p>VPC Endpoints provide private access to AWS service within VPC</p>
+      <p>
+        VPC Endpoints provide private access to AWS service (for example S3,
+        SNS, etc...) within VPC so we don't have to use the public internet.
+      </p>
+      <h4>Endpoint types</h4>
+      <ul>
+        <li>Interface endpoints</li>
+        <li>Gateway endpoints</li>
+      </ul>
     </div>
   </body>
 </html>
